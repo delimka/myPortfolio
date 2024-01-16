@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# Web Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my web developer portfolio! This project showcases my skills, projects, and insights. Utilizing React, TypeScript, GraphQL, and popular libraries like MDB, React-Bootstrap, and SCSS, I've crafted an engaging and responsive experience. Navigate through my project list, explore my blog powered by React Router, and connect with me through the provided contact details.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Projects:** Check out my latest web development projects.
+- **Blog:** Dive into insightful articles, navigated seamlessly with React Router.
+- **Contact:** Reach out to me through various contact channels.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- TypeScript
+- GraphQL
+- MDB
+- React-Bootstrap
+- SCSS
 
-- Configure the top-level `parserOptions` property like this:
+Feel free to explore, and I look forward to connecting with you!
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### How to Run
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Run the project with `npm start`.
+
+For any inquiries, contact me through the provided details in the Contact section.
+
+Happy exploring! 🚀
