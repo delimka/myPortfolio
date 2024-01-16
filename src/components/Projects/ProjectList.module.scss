@@ -1,0 +1,41 @@
+.projectList {
+  display: grid;
+  gap: 55px;
+  margin-bottom: 20px;
+
+}
+
+.projectList > * {
+  inset: 0;
+  margin: auto;
+  scale: 1;
+  // opacity: 0;
+  // animation: fade-in linear;
+  // animation-timeline: view();
+  // animation-range-end: contain 50%;
+  // animation-fill-mode: both;
+  // animation-duration: 1ms;
+}
+
+@keyframes fade-in {
+  from {
+    scale: .8;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 980px) {
+  .projectList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .projectList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

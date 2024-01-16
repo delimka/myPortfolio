@@ -1,0 +1,52 @@
+@use "./../../styles/abstracts/_colors" as *;
+@use "./../../styles/abstracts/_fonts" as *;
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  height: calc(100vh - 5rem);
+  width: 380px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-family: "Poppins", sans-serif;
+  border-radius: 9px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.dark {
+  color: $dark-800;
+  background-color: $white-700;
+  &.accordionItem {
+    background-color: $white-400;
+    & h2 {
+      background-color: $white-700;
+    }
+    & > div{
+      background-color: $white-400;
+
+    }
+  }
+}
+
+.light {
+  color: $dark-800;
+  background-color: $white-600;
+  &.accordionItem {
+    background-color: $white-600;
+    & h2 {
+      background-color: $white-600;
+    }
+    & > div{
+      background-color: $white-400;
+
+    }
+  }
+}

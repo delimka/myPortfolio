@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 50px 0;
+}
+
+.mainBlogContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 55px;
+  padding-top: 150px;
+  height: 100%;
+  width: 100ch;
+  justify-content: center;
+}
+
+.navSection {
+  position: sticky;
+  top: 50px;
+  height: calc(100vh - 5rem);
+  width: 380px;
+  background-color: #f0f0f0;
+  border: 5px solid black;
+}
+
+ul {
+  margin: 0;
+}

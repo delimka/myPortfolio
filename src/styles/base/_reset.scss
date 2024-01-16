@@ -1,0 +1,44 @@
+@use './../abstracts/_colors' as *;
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+
+.margin{
+  width: min(100ch, 100% - 2rem);
+
+  margin-inline:auto;
+}
+
+.light {
+
+  .text {
+    color: $dark-800;
+  }
+
+
+  .background {
+    background-color: $white-700;
+
+  }
+
+
+}
+
+.dark {
+  .text {
+    color: $white-400;
+  }
+
+  .light-box-shadow{
+    box-shadow: 0 0 10px rgba(189, 189, 189, 1);
+  }
+
+  .background {
+    background-color: $dark-400;
+  }
+}
+
+

@@ -1,0 +1,98 @@
+@use "./../../styles/abstracts/_colors" as *;
+@use "./../../styles/abstracts/_fonts" as *;
+@use "./../../styles/abstracts/_animations" as *;
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  height: 400px;
+  transition: 0.3s;
+  animation: ease-in;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  box-shadow: 3px 3px 6px black;
+}
+
+.cardContainer:hover {
+  transform: scale(1.1);
+  img {
+    transform: scaleY(1.1);
+  }
+}
+
+.imageContainer {
+  min-height: 200px;
+  overflow: hidden; 
+
+}
+
+.imageContainer img {
+  transition: 0.3s;
+  animation: ease-in;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid whitesmoke;
+  object-fit: cover; 
+}
+
+.stackContainer {
+  margin-top: auto;
+  p {
+    margin-top: 0;
+  }
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardContentContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-right: 1rem;
+  margin-left: 1rem;
+
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: $primaryFont;
+  font-weight: $fontWeightMedium;
+}
+
+.description {
+  margin-top: 8px;
+  font-family: $primaryFont;
+  font-weight: $fontWeightLight;
+}
+
+.linkButton {
+  display: flex;
+  font-family: $primaryFont;
+  font-weight: $fontWeightRegular;
+  @include movingUnderlineAnimation;
+
+  a {
+    // @include movingUnderlineAnimation;
+    padding-left: 4px;
+    transition: 200ms ease;
+    text-decoration: none;
+  }
+}
+
+.dark {
+  color: $dark-800;
+  background-color: $white-600;
+}
+
+.light {
+  color: $dark-800;
+  background-color: $white-500;
+
+}

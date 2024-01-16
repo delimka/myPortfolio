@@ -1,0 +1,45 @@
+@use "./../../styles/abstracts/_colors" as *;
+
+.footerContactStyles {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+.light {
+  color: $dark-800;
+  background-color: $white-700;
+
+  a {
+    color: $dark-800;
+  }
+
+  &.topBottomBorder {
+    border-top: 3px solid $white-800;
+    border-bottom: 3px solid $white-800;
+  }
+
+  &.topBorder {
+    border-top: 3px solid $white-800;
+  }
+}
+
+.dark {
+  color: $white-400;
+  background-color: $dark-400;
+
+  a {
+    color: $white-400;
+  }
+
+  &.topBottomBorder {
+    border-top: 3px solid $white-800;
+    border-bottom: 3px solid $white-800;
+  }
+  &.topBorder {
+    border-top: 3px solid $white-800;
+  }
+}

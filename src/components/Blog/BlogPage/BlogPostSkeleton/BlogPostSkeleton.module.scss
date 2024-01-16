@@ -1,0 +1,34 @@
+@use "./../../../../styles/abstracts/_fonts" as *;
+@use "./../../../../styles/abstracts/_colors" as *;
+@use "./../../../../styles/abstracts/_animations" as *;
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  height: 100svh;
+  width: 100%;
+}
+
+.introduction,
+.heading,
+.article {
+    @include blinkingGradientBackground($white-800, $white-800, 0.68s);
+    width: 100%;
+
+}
+
+
+.article {
+  height: 70%;
+}
+
+.heading {
+  height: 20%;
+}
+
+
+.introduction {
+  height: 10%;
+}

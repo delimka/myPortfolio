@@ -1,0 +1,66 @@
+@use "./../../styles/abstracts/_fonts" as *;
+@use "./../../styles/abstracts/_animations" as *;
+
+.navMainContainer {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+
+.navMenuList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin:1rem 0;
+  gap: 50px;
+}
+
+.navMenuItem {
+  font-family: $secondaryFont;
+  font-weight: $fontWeightMedium;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.iconList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.iconList li:not(:first-child) {
+  padding-left: 15px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+// Toggle theme btn
+
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.darkTheme {
+  border: 2px solid white;
+}
+
+.lightTheme {
+  border: 2px solid black;
+}
+
+// Animation
+
+.item2,
+.item4,
+.item5,
+.item1,
+.item3 {
+  @include hoverStyles;
+}

@@ -1,0 +1,80 @@
+
+@use "./../../styles/abstracts/_fonts" as *;
+
+.heroMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100svh;
+}
+
+.introductionContainer {
+  text-wrap: balance;
+  font-size: 45px;
+  font-family: $primaryFont;
+  font-weight: $fontWeightBold;
+}
+
+.columnContainer {
+  display: flex;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+}
+
+.profileImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+// adding hover effect for heading
+.heading {
+  background-image: linear-gradient(20deg, red, blue);
+  background-size: 0% 5px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 500ms ease;
+}
+
+.introductionContainer:hover {
+  .heading {
+    background-size: 100% 5px;
+  }
+}
+
+//Animation for background of profile image
+
+@property --a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animatedCircle {
+  border-radius: 50%;
+  width: 370px;
+  height: 370px;
+  transition: 200ms ease;
+  padding: 0.7em;
+  box-shadow: 2px 2px 17px #000;
+  background: url("./../../assets/hero/myPic.webp") 50% / cover content-box,
+    conic-gradient(
+      from var(--a),
+      hsl(0, 100%, 50%),
+      hsl(240, 100%, 50%),
+      hsl(0, 100%, 50%) 100%
+    );
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  to {
+    --a: 1turn;
+  }
+}
