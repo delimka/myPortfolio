@@ -16,13 +16,13 @@ const ProjectContainer = () => {
   };
 
   return (
-    <main className={theme}>  
+    <main  className={theme}>  
       <div className="background">
         <div className={`${styles.container} text`}>
-        <h1 className={`${styles.stackHeading1} text`}>My Projects</h1>
-        <h2 className={`${styles.stackHeading2} text`}>Things I’ve built so far</h2>
-        <Tabs activeTab={activeTab} onTabChange={handleTabChange} />
-          <section className={styles.projectList}>
+        <h1 id="projects" className={`${styles.stackHeading1} text`}>My Projects</h1>
+        <h2   className={`${styles.stackHeading2} text`}>Things I’ve built so far</h2>
+        <Tabs  activeTab={activeTab} onTabChange={handleTabChange} />
+          <section className={styles.panelSection}>
             <ProjectPanel activeTab={activeTab} />
           </section>
         </div>

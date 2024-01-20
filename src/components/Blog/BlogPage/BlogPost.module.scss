@@ -9,3 +9,16 @@
 .postContainer {
   width: 100%;
 }
+
+
+@media (max-width: 1348px) {
+  .blogPostContainer {
+  display: inline-block;
+  padding: 75px 0;
+  margin: 0 2%;
+
+  }
+  .postContainer{
+    margin-top: 75px;
+  }
+}

@@ -6,7 +6,6 @@
   width: 400px;
   justify-content: space-around;
   border-radius: 4px;
-  margin-top: 5%;
 
   button {
     flex: 1;
@@ -21,7 +20,7 @@
 
 button.clicked {
   background-image: linear-gradient(90deg, red, blue);
-  background-size: 100% 5px;
+  background-size: 100% 7px;
   background-repeat: no-repeat;
   background-position: left bottom;
 }
@@ -38,6 +37,15 @@ button.clicked {
   &.container {
     button {
       background-color: $white-400;
+    }
+  }
+}
+
+@media (max-width: 430px){
+  .container{
+    width: calc(100% - 10px);
+    button{
+      font-size: 14px;
     }
   }
 }

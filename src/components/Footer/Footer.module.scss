@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
   gap: 15px;
   margin-bottom: 1rem;
 }
-
+  a{
+    cursor: pointer;
+  }
+  
 .light {
   color: $dark-800;
   background-color: $white-700;
@@ -41,5 +43,12 @@
   }
   &.topBorder {
     border-top: 3px solid $white-800;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContactStyles {
+    justify-content: center;
+    align-items: center;
   }
 }

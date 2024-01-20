@@ -1,5 +1,4 @@
-import ProjectCard from "./ProjectCard";
-import styles from "./ProjectList.module.scss";
+import CarouselContainer from "./CarouselContainer";
 
 const FigmaProjects = () => {
   // Fetch or provide data for Figma projects
@@ -10,27 +9,19 @@ const FigmaProjects = () => {
       description:
         "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
       image: "",
-      stack:"React, Typescript, Firebase, SCSS",
-
+      stack: "React, Typescript, Firebase, SCSS",
     },
     {
       id: 2,
       title: "Figma Project 2",
-      description: 
-      "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
+      description:
+        "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
       image: "",
-      stack:"React, Typescript, Firebase, SCSS",
-
+      stack: "React, Typescript, Firebase, SCSS",
+      link: "ewqdqwdqwqw",
     },
   ];
-
-  return (
-    <div className={`${styles.projectList}`}>
-      {figmaProjects.map((project) => (
-        <ProjectCard key={project.id} {...project} />
-      ))}
-    </div>
-  );
+  return <CarouselContainer projects={figmaProjects} />;
 };
 
 export default FigmaProjects;

@@ -19,10 +19,29 @@ const SideBar: React.FC<SideBarProps> = ({ onCategoryClick }) => {
             collapseId={1}
             headerTitle="All categories"
             className={`${styles.accordionItem} ${styles[theme]}`}
-            onClick={() =>
-              onCategoryClick ? onCategoryClick("programming") : null
-            }
-          ></MDBAccordionItem>
+          >
+            <li
+              onClick={() =>
+                onCategoryClick ? onCategoryClick("programming") : null
+              }
+            >
+              HTML
+            </li>
+            <li
+              onClick={() =>
+                onCategoryClick ? onCategoryClick("data structure") : null
+              }
+            >
+              CSS
+            </li>
+            <li
+              onClick={() =>
+                onCategoryClick ? onCategoryClick("objects") : null
+              }
+            >
+              JavaScript
+            </li>
+          </MDBAccordionItem>
           <MDBAccordionItem
             collapseId={2}
             headerTitle="Frontend Development"
@@ -112,69 +131,6 @@ const SideBar: React.FC<SideBarProps> = ({ onCategoryClick }) => {
               }
             >
               Best Practices
-            </li>
-          </MDBAccordionItem>
-
-          <MDBAccordionItem
-            collapseId={5}
-            headerTitle="UI/UX Design"
-            className={`${styles.accordionItem} ${styles[theme]}`}
-          >
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("ui design") : null
-              }
-            >
-              UI Design
-            </li>
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("usability") : null
-              }
-            >
-              Usability
-            </li>
-          </MDBAccordionItem>
-
-          <MDBAccordionItem
-            collapseId={6}
-            headerTitle="Web Performance"
-            className={`${styles.accordionItem} ${styles[theme]}`}
-          >
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("optimization") : null
-              }
-            >
-              Optimization Techniques
-            </li>
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("caching") : null
-              }
-            >
-              Caching Strategies
-            </li>
-          </MDBAccordionItem>
-
-          <MDBAccordionItem
-            collapseId={7}
-            headerTitle="Testing"
-            className={`${styles.accordionItem} ${styles[theme]}`}
-          >
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("unit testing") : null
-              }
-            >
-              Unit Testing
-            </li>
-            <li
-              onClick={() =>
-                onCategoryClick ? onCategoryClick("integration testing") : null
-              }
-            >
-              Integration Testing
             </li>
           </MDBAccordionItem>
         </MDBAccordion>

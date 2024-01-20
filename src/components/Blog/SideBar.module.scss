@@ -8,8 +8,25 @@
   width: 380px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-  font-family: "Poppins", sans-serif;
   border-radius: 9px;
+}
+
+.sidebar {
+  li,
+  button {
+    font-family: "DM sans", sans-serif;
+  }
+  button {
+    -webkit-text-stroke: 0px;
+    font-weight: 400;
+    font-size: 20px;
+    color: $dark-800;
+
+  }
+  li {
+    font-size: 18px;
+    color: $dark-400;
+  }
 }
 .sidebar ul {
   list-style: none;
@@ -21,6 +38,12 @@
   cursor: pointer;
 }
 
+.accordionItem {
+  button {
+    border-radius: 0px !important;
+  }
+}
+
 .dark {
   color: $dark-800;
   background-color: $white-700;
@@ -29,9 +52,8 @@
     & h2 {
       background-color: $white-700;
     }
-    & > div{
+    & > div {
       background-color: $white-400;
-
     }
   }
 }
@@ -44,9 +66,20 @@
     & h2 {
       background-color: $white-600;
     }
-    & > div{
+    & > div {
       background-color: $white-400;
-
     }
   }
+}
+
+@media (max-width: 1348px) {
+  .sidebar {
+    width: auto;
+    height: auto;
+  }
+}
+@media (max-width: 1348px) {
+.sidebar{
+  margin: 0;
+}
 }

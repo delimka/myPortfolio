@@ -5,14 +5,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100svh;
+  height: 100ch;
   width: 100%;
+  gap: 55px;
 }
 
 .stackLogoList {
   display: grid;
   gap: 25px;
-  margin-top: 50px;
   width: 75%;
   animation: fade-out linear;
   animation-timeline: view();
@@ -64,7 +64,16 @@ to {opacity:0 ;}
 }
 
 @media (max-width: 576px) {
+  .container{
+    gap: 25px;
+    justify-content: flex-start;
+  }
   .stackLogoList {
     gap: 10px;
+  }
+
+  .stackLogoList > * {
+    margin-top: 0px;
+
   }
 }

@@ -15,7 +15,9 @@ function Blogs() {
   const { scrollToBottom, setScrollToBottom} = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-
+const setVisible = () =>{
+  return window.innerWidth < 820 ? 3 : 4;
+}
   
   useEffect(() => {
     // Skip scrolling during initial render
@@ -48,7 +50,7 @@ function Blogs() {
 
 
   return (
-    <main className={theme} ref={containerRef}>
+    <main id="myBlog" className={theme} ref={containerRef}>
       <div className="background">
         <div className={`${styles.container} text`}>
           <h1
@@ -57,15 +59,15 @@ function Blogs() {
           >
             My Blog
           </h1>
-          <h2 className={`${existingStyles.stackHeading2} text`}>
+          <h2 className={`${styles.heading2} text`}>
             Personal blog for learning purpose
           </h2>
           <div className={styles.mainBlogContainer}>
-            <section>
+            <section className={styles.sideBarSection}>
               <SideBar onCategoryClick={setSelectedCategory} />
             </section>
             <section className={styles.projectList}>
-              <BlogList selectedCategory={selectedCategory} />
+              <BlogList selectedCategory={selectedCategory}  initialVisiblePosts={setVisible()}/>
             </section>
           </div>
         </div>

@@ -3,7 +3,7 @@ import FigmaProjects from './FigmaProjects';
 
 const TabPanel: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   return (
-    <div>
+    <div >
       {activeTab === 'frontend' && <FrontendProjects />}
       {activeTab === 'figma' && <FigmaProjects />}
     </div>
