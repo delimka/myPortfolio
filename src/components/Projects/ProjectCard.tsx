@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./ProjectCard.module.scss";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import { MdPreview } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
 

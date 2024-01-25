@@ -7,16 +7,11 @@ import {
   BiPhoneCall,
 } from "react-icons/bi";
 
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-} from "mdb-react-ui-kit";
-import { ThemeContext } from "../../context/ThemeContext";
+import { MDBFooter, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import styles from "./Footer.module.scss";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll";
 
 export default function App() {
   const { theme } = useContext(ThemeContext);
@@ -31,14 +26,14 @@ export default function App() {
         </div>
 
         <div className="d-flex justify-content-center justify-content-lg-between">
-          <a href="" className="me-4 text-reset" >
+          <a href="" className="me-4 text-reset">
             <BiLogoLinkedinSquare style={{ color: "#0e76a8" }} size={30} />
           </a>
-          <a href="" className="me-4 text-reset" >
-            <BiLogoGmail style={{ color: "#D44638" }} size={30}/>
+          <a href="" className="me-4 text-reset">
+            <BiLogoGmail style={{ color: "#D44638" }} size={30} />
           </a>
-          <a href="" className="me-4 text-reset" >
-            <BiLogoTelegram style={{ color: "#0088cc" }} size={30}/>
+          <a href="" className="me-4 text-reset">
+            <BiLogoTelegram style={{ color: "#0088cc" }} size={30} />
           </a>
         </div>
       </section>
@@ -47,9 +42,7 @@ export default function App() {
         <MDBContainer className="text-center text-md-start ">
           <MDBRow className="pt-5">
             <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">
-                Company name
-              </h6>
+              <h6 className="text-uppercase fw-bold mb-4">Company name</h6>
               <p>
                 Here you can use rows and columns to organize your footer
                 content. Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -57,27 +50,31 @@ export default function App() {
               </p>
             </MDBCol>
 
-
-
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-               <ScrollLink to={"navbar"} className="text-reset cursor-point">
-                Home
+                <ScrollLink to={"navbar"} className="text-reset cursor-point">
+                  Home
                 </ScrollLink>
               </p>
               <p>
-              <ScrollLink to={"techStack"} className="text-reset cursor-point">
+                <ScrollLink
+                  to={"/ techStack"}
+                  className="text-reset cursor-point"
+                >
                   Tech Stack
                 </ScrollLink>
               </p>
               <p>
-              <ScrollLink to={"projects"} className="text-reset cursor-point">
+                <ScrollLink
+                  to={"projects"}
+                  className="text-reset cursor-point"
+                >
                   Projects
                 </ScrollLink>
               </p>
               <p>
-              <ScrollLink to={"myBlog"} className="text-reset cursor-point">
+                <ScrollLink to={"myBlog"} className="text-reset cursor-point">
                   Blog
                 </ScrollLink>
               </p>

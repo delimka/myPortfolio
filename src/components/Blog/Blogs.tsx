@@ -1,10 +1,10 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import BlogList from "./BlogList";
 import SideBar from "./SideBar";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import existingStyles from "./../Projects/Projects.module.scss";
 import styles from "./Blogs.module.scss";
-import { useScroll } from "../../context/ScrollContext";
+import { useScroll } from "../../hooks/ScrollContext";
 
 
 function Blogs() {
@@ -25,8 +25,7 @@ const setVisible = () =>{
       isInitialRender.current = false;
       return;
     }
-
-    // Scroll to stackHeading1 when selectedCategory changes
+    
     if (blogsHeadingRef.current) {
       blogsHeadingRef.current.scrollIntoView({
         behavior: "smooth",

@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import styles from "./SideBar.module.scss";
 import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 
 interface SideBarProps {
   onCategoryClick?: (category: string) => void;

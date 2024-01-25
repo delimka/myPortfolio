@@ -1,11 +1,11 @@
 // BlogList.tsx
 import React, { useContext } from "react";
 import BlogCard from "./BlogCard";
-import { ThemeContext } from "../../context/ThemeContext";
-import { FETCH_STATUS } from "../../api/blogs/fetchStatus";
+import { ThemeContext } from "../../hooks/ThemeContext";
+import { FETCH_STATUS } from "../../services/fetchStatus";
 import styles from "./BlogList.module.scss";
 import CardSkeleton from "./../CardSkeleton/CardSkeleton";
-import useBlogData from "./useBlogData.hook";
+import useBlogData from "../../hooks/useBlogData.hook";
 
 interface BlogListProps {
   selectedCategory: string | null;

@@ -18,7 +18,6 @@
 
 .cardContainer:hover {
   transform: scale(1.1);
- 
 }
 
 .imageContainer {
@@ -36,6 +35,7 @@
 
 .stackContainer {
   margin-top: auto;
+  margin-bottom: auto;
   p {
     margin-top: 0;
   }
@@ -45,6 +45,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .cardContentContainer {
@@ -98,7 +99,6 @@
   }
 }
 @media (max-width: 980px) {
-  
   .cardContainer:hover {
     transform: scale(1);
     img {
@@ -113,11 +113,9 @@
     height: 450px;
     width: 350px;
   }
-
 }
 
 @media (max-width: 378px) {
-
   .cardContainer {
     scale: 0.95;
   }

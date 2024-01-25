@@ -1,12 +1,12 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { ThemeContext } from "./../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import { FaRegSun, FaCloudMoon, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll";
 import styles from "./NavBar.module.scss";
 import "./../../App.scss";
-import { useScroll } from "../../context/ScrollContext";
+import { useScroll } from "../../hooks/ScrollContext";
 import ContactIcons from "../ContactIcons/ContactIcons";
 
 function NavBar() {
@@ -30,10 +30,10 @@ function NavBar() {
   }, [menuOpen]);
 
   useEffect(() => {
-    if (scrollToTop) {
+    if (scrollToTop && navbarRef.current) {
       navbarRef.current?.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        block: "end",
         inline: "nearest",
       });
       setScrollToTop(false);
@@ -41,8 +41,8 @@ function NavBar() {
   }, [scrollToTop, setScrollToTop]);
 
   return (
-    <header id="navbar"className={`${theme} ${styles.header}`} ref={navbarRef}>
-      <div className="background">
+    <header id="navbar" className={`${theme} ${styles.header}`} >
+      <div className="background" ref={navbarRef}>
         <div className={`${styles.header__content} margin text`}>
           <Link className={styles.header__content__logo} to={`/`}>
             <img alt="Logo" />
@@ -69,15 +69,14 @@ function NavBar() {
                 Tech Stack
               </ScrollLink>
 
-              <ScrollLink
-                className={`${styles.nav__menu__item} ${styles.item} text`}
-                to={"projects"}
-                onClick={menuToggleHandler}
-
-              >
-                Projects
-              </ScrollLink>
-
+              <Link to={"/"} onClick={menuToggleHandler}>
+                <ScrollLink
+                  className={`${styles.nav__menu__item} ${styles.item} text`}
+                  to={"projects"}
+                >
+                  Projects
+                </ScrollLink>
+              </Link>
               <Link
                 to={`/blog`}
                 className={`${styles.nav__menu__item} ${styles.item} text`}
@@ -93,8 +92,10 @@ function NavBar() {
                 Download CV
               </Link>
               <ul className={`${styles.icon__list} text`}>
-
-              <ContactIcons iconSize="29px" containerStyle={{display:"flex"}} />
+                <ContactIcons
+                  iconSize="29px"
+                  containerStyle={{ display: "flex" }}
+                />
 
                 <li>
                   <button

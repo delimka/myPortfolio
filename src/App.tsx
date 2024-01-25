@@ -6,10 +6,10 @@ import Hero from "./components/Hero/Hero";
 import Stack from "./components/Stack/Stack";
 import Projects from "./components/Projects/Projects";
 import Blog from "./components/Blog/Blogs";
-import BlogPost from "./components/Blog/BlogPage/BlogPost";
+import BlogPost from "./pages/BlogPage/BlogPost";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Suspense } from "react";
-import BlogPage from "./components/Blog/BlogPage/BlogPage";
+import BlogPage from "./pages/BlogPage/BlogPage";
 
 function App() {
   return (

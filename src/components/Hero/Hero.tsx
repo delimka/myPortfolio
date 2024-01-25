@@ -1,6 +1,6 @@
 // Hero.jsx
 import { useContext, useState, useEffect } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import styles from "./Hero.module.scss";
 import ContactIcons from "../ContactIcons/ContactIcons";
 

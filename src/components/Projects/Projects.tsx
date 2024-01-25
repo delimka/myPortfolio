@@ -1,7 +1,7 @@
 // ProjectContainer.jsx
 
 import { useState, useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import Tabs from "./Tabs";
 import ProjectPanel from "./ProjectPanel";
 import styles from "./Projects.module.scss";

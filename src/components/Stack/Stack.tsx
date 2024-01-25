@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import {
   SiHtml5,
   SiCss3,
@@ -22,8 +22,8 @@ function Stack() {
   return (
     <main className={theme}>
       <div className="background">
-        <div className={`${styles.container} margin text`}>
-          <h1 id="techStack" className={styles.stackHeading1}>My Tech Stack</h1>
+        <div id="techStack"  className={`${styles.container} margin text`}>
+          <h1 className={styles.stackHeading1}>My Tech Stack</h1>
           <h2 className={styles.stackHeading2}>Technologies I’ve been working with recently</h2>
           <div className={styles.stackLogoList}>
             <SiHtml5 size={120} style={{ color: "#E34F26" }} alt="HTML5 Logo"/>

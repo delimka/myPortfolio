@@ -21,7 +21,6 @@
     font-weight: 400;
     font-size: 20px;
     color: $dark-800;
-
   }
   li {
     font-size: 18px;
@@ -46,23 +45,9 @@
 
 .dark {
   color: $dark-800;
-  background-color: $white-700;
-  &.accordionItem {
-    background-color: $white-400;
-    & h2 {
-      background-color: $white-700;
-    }
-    & > div {
-      background-color: $white-400;
-    }
-  }
-}
-
-.light {
-  color: $dark-800;
   background-color: $white-600;
   &.accordionItem {
-    background-color: $white-600;
+    background-color: $white-400;
     & h2 {
       background-color: $white-600;
     }
@@ -72,14 +57,32 @@
   }
 }
 
-@media (max-width: 1348px) {
+.light {
+  color: $dark-800;
+  background-color: $white-500;
+  &.accordionItem {
+    background-color: $white-500;
+    & h2 {
+      background-color: $white-500;
+    }
+    & > div {
+      background-color: $white-400;
+    }
+  }
+}
+
+@media (max-width: 1398px) {
   .sidebar {
-    width: auto;
+    width: 100%;
     height: auto;
   }
 }
+
 @media (max-width: 1348px) {
-.sidebar{
-  margin: 0;
-}
+  .sidebar {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+    position: relative;
+  }
 }

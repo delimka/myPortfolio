@@ -1,0 +1,33 @@
+@use "./../../styles/abstracts/_colors" as *;
+
+.blogPageContainer {
+  display: flex;
+  padding: 0 8%;
+  height: 100%;
+  padding-top: 150px;
+  padding-bottom: 50px;
+  gap: 35px;
+}
+
+.listContainer {
+  width: 100%;
+}
+
+@media (max-width: 1348px) {
+  .blogPageContainer {
+    flex-direction: column;
+    padding: 5% 2%;
+  }
+}
+
+.light {
+  &.blogPageContainer {
+    background-color: $white-600;
+  }
+}
+
+.dark {
+  &.blogPageContainer {
+    background-color: $dark-300;
+  }
+}

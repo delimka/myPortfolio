@@ -1,12 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useContext, useRef  } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getBlogPost } from "../../../api/blogs/apiService";
-import { Post } from "../../../interfaces/BlogCardInterface";
-import SideBar from "../SideBar";
-import { FETCH_STATUS } from "./../../../api/blogs/fetchStatus";
-import BlogPostSkeleton from "./BlogPostSkeleton/BlogPostSkeleton";
+import { getBlogPost } from "../../services/apiService";
+import { Post } from  "./../../interfaces/BlogCardInterface";
+import SideBar from "../../components/Blog/SideBar";
+import { FETCH_STATUS} from "../../services/fetchStatus";
+import BlogPostSkeleton from "./../../components/BlogPostSkeleton/BlogPostSkeleton";
+import Prism from "prismjs";
+import "./../../../node_modules/prismjs/components/prism-typescript";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import styles from "./BlogPost.module.scss";
-import { useScroll } from "../../../context/ScrollContext";
 
 interface BlogPostParams {
   slug: string;
@@ -18,7 +20,7 @@ const BlogPost: React.FC = () => {
   const [post, setPost] = useState<Post | null>(null);
   const blogsHeadingRef = useRef<HTMLHeadingElement>(null);
   const [fetchStatus, setFetchStatus] = useState<string>(FETCH_STATUS.IDLE);
-  const { setScrollToTop } = useScroll(); // Use the useScroll hook
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -52,15 +54,21 @@ const BlogPost: React.FC = () => {
     navigate("/blog");
   };
 
+
   useEffect(() => {
-    setScrollToTop(true);
-  }, [setScrollToTop]);
+    if (blogsHeadingRef.current) {
+      blogsHeadingRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+    Prism.highlightAll();
+  }, [post]);
 
 
   return (
-    <div className={styles.blogPostContainer} ref={blogsHeadingRef}>
+    <div className={theme} ref={blogsHeadingRef}>
+    <div className='background'>
+    <div className= {`${styles[theme]} ${styles.blogPostContainer}`} >
       <SideBar onCategoryClick={handleCategoryClick} />
-      <article className={styles.postContainer}>
+      <article className={`${styles[theme]} ${styles.postContainer}`} >
         {fetchStatus === FETCH_STATUS.LOADING && <BlogPostSkeleton />}
         {fetchStatus === FETCH_STATUS.ERROR && (
           <div>Error loading blog post</div>
@@ -68,13 +76,27 @@ const BlogPost: React.FC = () => {
         {fetchStatus === FETCH_STATUS.SUCCESS && (
           <>
             <h1>{post?.title}</h1>
-            <p>{post?.datePublished}</p>
+            <div className={styles.blogInfo}>
+              <p className={styles.datePublished}>
+                Date published:<strong> {post?.datePublished} </strong>
+              </p>
+              <div className={styles.authorContainer}>
+                <img
+                  className={styles.authorLogo}
+                  src={post?.author.avatar.url}
+                />
+                <p className={styles.authorName}>{post?.author.name}</p>
+              </div>
+            </div>
             <div
+              className={styles.htmlContent}
               dangerouslySetInnerHTML={{ __html: post?.content.html || "" }}
             />
           </>
         )}
       </article>
+    </div>
+    </div>
     </div>
   );
 };

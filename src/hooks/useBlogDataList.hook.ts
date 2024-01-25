@@ -1,9 +1,9 @@
 // useBlogData.ts
 import { useEffect, useState } from "react";
-import { getPosts } from "../../api/blogs/apiService";
-import { FETCH_STATUS } from "../../api/blogs/fetchStatus";
-import { PostCard } from "../../interfaces/BlogCardInterface";
-import { useScroll } from "../../context/ScrollContext";
+import { getPosts } from "../services/apiService";
+import { FETCH_STATUS } from "../services/fetchStatus";
+import { PostCard } from "../interfaces/BlogCardInterface";
+import { useScroll } from "./ScrollContext";
 
 interface UseBlogDataProps {
   initialCategory?: string;

@@ -1,6 +1,6 @@
 // apiService.ts
 import { GraphQLClient, gql } from "graphql-request";
-import { PostCard, Post  } from "./../../interfaces/BlogCardInterface";
+import { PostCard, Post  } from "./../interfaces/BlogCardInterface";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/clqjodsz5b3q801ukarrs15f7/master"

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PostCard } from "./../../interfaces/BlogCardInterface";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import styles from "./../Projects/ProjectCard.module.scss";
 import { Link } from "react-router-dom";
 
