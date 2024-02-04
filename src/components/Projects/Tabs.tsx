@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./Tabs.module.scss";
-import { ThemeContext } from "../../hooks/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface TabsProps {
   activeTab: string;

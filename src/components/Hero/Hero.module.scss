@@ -59,10 +59,10 @@
   border-radius: 50%;
   width: 370px;
   height: 370px;
-  transition: 200ms ease;
+  transform: 300ms ease-in-out, opacity 300ms ease-in-out;
   padding: 0.7em;
   box-shadow: 2px 2px 17px #000;
-  background: url("./../../assets/hero/myPic.webp") 50% / cover content-box,
+  background: url("./../../assets/hero/portfolioImg.webp") 50% / cover content-box,
     conic-gradient(
       from var(--a),
       hsl(0, 100%, 50%),
@@ -75,6 +75,12 @@
   to {
     --a: 1turn;
   }
+}
+
+@media (max-width: 980px) {
+.introductionContainer{
+  font-size: 35px;
+}
 }
 
 @media (max-width: 823px) {

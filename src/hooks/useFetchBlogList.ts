@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { getPosts } from "../services/apiService";
 import { FETCH_STATUS } from "../services/fetchStatus";
 import { PostCard } from "../interfaces/BlogCardInterface";
-import { useScroll } from "./ScrollContext";
+import { useScroll } from "../context/ScrollContext";
+import { delayPromise } from "../helpers/fetchFunctions";
 
 interface UseBlogDataProps {
-  initialCategory?: string;
+  category?: string;
   // loadMoreButtonRef: React.RefObject<HTMLButtonElement>;
   initialVisiblePosts?: number;
 }
@@ -19,7 +20,7 @@ interface UseBlogDataResult {
 }
 
 const useBlogData = ({
-  initialCategory,
+  category,
   initialVisiblePosts = 4,
 }: UseBlogDataProps): UseBlogDataResult => {
   const [allPosts, setAllPosts] = useState<PostCard[]>([]);
@@ -33,10 +34,7 @@ const useBlogData = ({
   ) => {
     setFetchStatus(FETCH_STATUS.LOADING);
 
-    const delayPromise = new Promise((resolve) => {
-      setTimeout(resolve, 700);
-    });
-    await delayPromise;
+    await delayPromise(700);
 
     try {
       const data = await getPosts(
@@ -54,8 +52,8 @@ const useBlogData = ({
   };
 
   useEffect(() => {
-    fetchData(8, initialCategory);
-  }, [initialCategory]);
+    fetchData(8, category);
+  }, [category]);
 
   const loadMorePosts = async () => {
     try {
@@ -66,7 +64,7 @@ const useBlogData = ({
         const additionalPosts = await getPosts(
           8,
           allPosts.length,
-          initialCategory || "programming"
+          category || "programming"
         );
         if (additionalPosts.length > 0) {
           setAllPosts((prev) => [...prev, ...additionalPosts]);

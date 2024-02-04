@@ -2,11 +2,11 @@
 @use "./../../styles/abstracts/_colors" as *;
 @use "./../../styles/abstracts/_animations" as *;
 
-
-.container{
+.container {
   display: flex;
   flex-direction: column;
   row-gap: 50px;
+  padding: 5%;
   height: 100svh;
   width: 100%;
 }
@@ -14,20 +14,17 @@
 .introduction,
 .heading,
 .article {
-    @include blinkingGradientBackground($white-800, $white-800, 0.68s);
-    width: 100%;
-
+  @include blinkingGradientBackground($white-800, $white-800, 0.68s);
+  width: 100%;
 }
-
 
 .article {
   height: 70%;
 }
 
 .heading {
-  height: 20%;
+  height: 40%;
 }
-
 
 .introduction {
   height: 10%;

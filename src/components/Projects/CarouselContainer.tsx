@@ -4,12 +4,12 @@ import "react-multi-carousel/lib/styles.css";
 import ProjectCard from "./ProjectCard";
 import styles from "./ProjectList.module.scss";
 
-
 interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
+  altImage?: string;
   stack: string;
   link?: string;
 }
@@ -19,7 +19,6 @@ interface CarouselContainerProps {
 }
 
 const CarouselContainer: React.FC<CarouselContainerProps> = ({ projects }) => {
-  const customDotListClass = styles.customDotList;
 
   const responsiveConfig = {
     superLargeDesktop: {
@@ -42,10 +41,20 @@ const CarouselContainer: React.FC<CarouselContainerProps> = ({ projects }) => {
 
   return (
     <Carousel
-      dotListClass={customDotListClass}
+      swipeable={true}
+      draggable={true}
+      showDots={true}
+      ssr={false}
+      autoPlay={false}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      customTransition="transform 300ms ease-in-out, opacity 300ms ease-in-out"
+      transitionDuration={300}
+      removeArrowOnDeviceType={["mobile"]}
       responsive={responsiveConfig}
       containerClass={styles.carouselContainer}
       itemClass={styles.item}
+      sliderClass={styles.carouselTrack}
     >
       {projects.map((project) => (
         <ProjectCard key={project.id} {...project} />

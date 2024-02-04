@@ -1,15 +1,19 @@
 // App.tsx
-import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
-import Stack from "./components/Stack/Stack";
-import Projects from "./components/Projects/Projects";
-import Blog from "./components/Blog/Blogs";
-import BlogPost from "./pages/BlogPage/BlogPost";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
-import BlogPage from "./pages/BlogPage/BlogPage";
+import SuspenseBackground from "./components/SuspenseBackground/SuspenseBackground";
+const Stack = lazy(() => import("./components/Stack/Stack"));
+const Projects = lazy(() => import("./components/Projects/Projects"));
+const Blog = lazy(() => import("./components/Blog/Blogs"));
+const BlogPost = lazy(() => import("./pages/BlogPage/BlogPost"));
+const BlogPage = lazy(() => import("./pages/BlogPage/BlogPage"));
+
+import ReactGA from "react-ga";
+
+ReactGA.initialize("6699610027");
 
 function App() {
   return (
@@ -19,7 +23,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Suspense fallback={"Loading..."}>
+            <Suspense fallback={<SuspenseBackground />}>
               <Hero />
               <Stack />
               <Projects />
@@ -27,8 +31,22 @@ function App() {
             </Suspense>
           }
         />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route
+          path="/blog"
+          element={
+            <Suspense fallback={<SuspenseBackground />}>
+              <BlogPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <Suspense fallback={<SuspenseBackground />}>
+              <BlogPost />
+            </Suspense>
+          }
+        />
       </Routes>
       <Footer />
     </Router>

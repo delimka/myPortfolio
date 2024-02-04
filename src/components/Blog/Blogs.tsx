@@ -1,31 +1,33 @@
 import { useContext, useState, useRef, useEffect } from "react";
+import { useScroll } from "../../context/ScrollContext";
+import { useTranslation } from "react-i18next";
 import BlogList from "./BlogList";
 import SideBar from "./SideBar";
-import { ThemeContext } from "../../hooks/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useScrollToBottom } from "../../helpers/scrollFunctions";
 import existingStyles from "./../Projects/Projects.module.scss";
 import styles from "./Blogs.module.scss";
-import { useScroll } from "../../hooks/ScrollContext";
-
 
 function Blogs() {
   const { theme } = useContext(ThemeContext);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const { scrollToBottom, setScrollToBottom } = useScroll();
+  const {t} = useTranslation();
   const blogsHeadingRef = useRef<HTMLHeadingElement>(null);
   const isInitialRender = useRef(true);
-  const { scrollToBottom, setScrollToBottom} = useScroll();
   const containerRef = useRef<HTMLDivElement>(null);
 
-const setVisible = () =>{
-  return window.innerWidth < 820 ? 3 : 4;
-}
-  
+  const setVisible = () => {
+    return window.innerWidth < 820 ? 3 : 4;
+  };
+
   useEffect(() => {
     // Skip scrolling during initial render
     if (isInitialRender.current) {
       isInitialRender.current = false;
       return;
     }
-    
+
     if (blogsHeadingRef.current) {
       blogsHeadingRef.current.scrollIntoView({
         behavior: "smooth",
@@ -35,38 +37,35 @@ const setVisible = () =>{
     }
   }, [selectedCategory]);
 
-
-  useEffect(() => {
-    if (scrollToBottom) {
-      containerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
-      setScrollToBottom(false);
-    }
-  }, [scrollToBottom, setScrollToBottom]);
-
-
+  
+  useScrollToBottom({
+    scrollToBottom,
+    setScrollToBottom,
+    ref: containerRef,
+  });
+  
   return (
-    <main id="myBlog" className={theme} ref={containerRef}>
+    <main  className={theme} ref={containerRef}>
       <div className="background">
         <div className={`${styles.container} text`}>
           <h1
             ref={blogsHeadingRef}
             className={`${existingStyles.stackHeading1} text`}
           >
-            My Blog
+            {t("blog.title")}
           </h1>
-          <h2 className={`${styles.heading2} text`}>
-            Personal blog for learning purpose
+          <h2 className={`${styles.heading2} text`} id="myBlog" >
+          {t("blog.subtitle")}
           </h2>
           <div className={styles.mainBlogContainer}>
             <section className={styles.sideBarSection}>
               <SideBar onCategoryClick={setSelectedCategory} />
             </section>
             <section className={styles.projectList}>
-              <BlogList selectedCategory={selectedCategory}  initialVisiblePosts={setVisible()}/>
+              <BlogList
+                selectedCategory={selectedCategory}
+                initialVisiblePosts={setVisible()}
+              />
             </section>
           </div>
         </div>

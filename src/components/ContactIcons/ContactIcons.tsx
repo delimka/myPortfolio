@@ -1,26 +1,40 @@
 // ContactIcons.jsx
-import React from "react";
-import { SiLinkedin, SiGithub, SiMinutemailer } from "react-icons/si";
-
+import React, { MouseEventHandler } from "react";
+import { SiLinkedin, SiGithub } from "react-icons/si";
+import { useTranslation } from "react-i18next";
 interface ContactIconsProps {
   iconSize?: string;
   listStyle?: React.CSSProperties;
   containerStyle?: React.CSSProperties;
+  onClick?: MouseEventHandler<HTMLLIElement | undefined>;
 }
 
-const ContactIcons = ({ iconSize, listStyle, containerStyle  }: ContactIconsProps) => {
+const ContactIcons = ({
+  iconSize,
+  listStyle,
+  containerStyle,
+  onClick,
+}: ContactIconsProps) => {
+  const { t } = useTranslation();
+
   return (
-    <div style={{...containerStyle}}>
-      <li style={{ color: "#f05033", fontSize: iconSize, ...listStyle }}>
-        <SiGithub />
-      </li>
-      <li style={{ color: "#0A66C2", fontSize: iconSize, ...listStyle }}>
-        <SiLinkedin />
-      </li>
-      <li style={{ color: "#009688", fontSize: iconSize, ...listStyle }}>
-        <SiMinutemailer />
-      </li>
-    </div>
+      <ul style={{ ...containerStyle }}>
+        <li onClick={onClick}>
+          <button
+            style={{ color: "#f05033", fontSize: iconSize, ...listStyle }}
+          >
+            <SiGithub aria-label={t("contactIcons.gitIcon")} />
+          </button>
+        </li>
+
+        <li onClick={onClick}>
+          <button
+            style={{ color: "#0A66C2", fontSize: iconSize, ...listStyle }}
+          >
+            <SiLinkedin aria-label={t("contactIcons.linkedInIcon")} />
+          </button>
+        </li>
+      </ul>
   );
 };
 

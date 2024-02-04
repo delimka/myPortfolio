@@ -3,12 +3,10 @@
 
 .sidebar {
   position: sticky;
-  top: 20px;
-  height: calc(100vh - 5rem);
+  top: 30px;
   width: 380px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-  border-radius: 9px;
 }
 
 .sidebar {
@@ -21,6 +19,11 @@
     font-weight: 400;
     font-size: 20px;
     color: $dark-800;
+  } 
+  &.accordionItem {
+    & h2 {
+      border-radius: 0px;
+    }
   }
   li {
     font-size: 18px;
@@ -37,9 +40,30 @@
   cursor: pointer;
 }
 
-.accordionItem {
-  button {
-    border-radius: 0px !important;
+
+.accordion {
+  .accordionItem {
+    border-bottom: 2px solid $white-800;
+    border-right: 2px solid $white-800;
+    border-left: 2px solid $white-800;
+    border-radius: 0px;
+    button{
+      border-radius: 0px !important;
+      padding: 40px;
+
+    }
+  }
+
+  .btnCollapsed {
+    border-top: 2px solid $white-800;
+    div {
+      display: none;
+    }
+    button {
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 
@@ -59,7 +83,7 @@
 
 .light {
   color: $dark-800;
-  background-color: $white-500;
+  background-color: $white-400;
   &.accordionItem {
     background-color: $white-500;
     & h2 {
@@ -71,18 +95,30 @@
   }
 }
 
-@media (max-width: 1398px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-}
-
 @media (max-width: 1348px) {
   .sidebar {
-    width: 100%;
+    width: auto;
     height: auto;
-    margin-bottom: 50px;
+    font-size: 14px;
+  }
+  .accordion-body {
+    padding: 0;
+  }
+
+ }
+
+ @media (max-width: 1348px) {
+   .sidebar {
+    height: auto;
+    margin: 5% 0;
     position: relative;
+    .accordion {
+      .accordionItem {
+        padding: 0px;
+        button{
+          padding: 10px;
+        }
+      }
+    }
   }
 }

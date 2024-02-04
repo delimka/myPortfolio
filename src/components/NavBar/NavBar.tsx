@@ -1,19 +1,21 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { ThemeContext } from "../../hooks/ThemeContext";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import { FaRegSun, FaCloudMoon, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { menuScrollHandler } from "../../helpers/scrollFunctions";
+import DropDownBtn from "./../../components/DropDownBtn/DropDwonBtn";
+import ContactIcons from "../ContactIcons/ContactIcons";
 import styles from "./NavBar.module.scss";
 import "./../../App.scss";
-import { useScroll } from "../../hooks/ScrollContext";
-import ContactIcons from "../ContactIcons/ContactIcons";
 
 function NavBar() {
   const { theme, setTheme } = useContext(ThemeContext);
-  const { scrollToTop, setScrollToTop } = useScroll();
-  const navbarRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
+  const location = useLocation();
+  const [isBlogPage, setIsBlogPage] = useState<boolean>(false);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -30,88 +32,126 @@ function NavBar() {
   }, [menuOpen]);
 
   useEffect(() => {
-    if (scrollToTop && navbarRef.current) {
-      navbarRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
-      setScrollToTop(false);
-    }
-  }, [scrollToTop, setScrollToTop]);
+    setIsBlogPage(location.pathname.startsWith("/blog"));
+  }, [location.pathname]);
 
   return (
-    <header id="navbar" className={`${theme} ${styles.header}`} >
-      <div className="background" ref={navbarRef}>
+    <header id="navbar" className={`${theme} ${styles.header}`}>
+      <div className="background">
         <div className={`${styles.header__content} margin text`}>
-          <Link className={styles.header__content__logo} to={`/`}>
-            <img alt="Logo" />
-          </Link>
+          <DropDownBtn />
           <nav
             className={`${styles.header__content__nav} ${
               menuOpen && window.innerWidth < 980 ? styles.isMenu : ""
             } background`}
           >
             <ul className={`${styles.nav__menu__list}`}>
-              <Link
-                to={"/"}
-                className={`${styles.nav__menu__item} ${styles.item} text`}
-                onClick={menuToggleHandler}
-              >
-                Home
-              </Link>
-
-              <ScrollLink
-                className={`${styles.nav__menu__item} ${styles.item} text`}
-                to={"techStack"}
-                onClick={menuToggleHandler}
-              >
-                Tech Stack
-              </ScrollLink>
-
-              <Link to={"/"} onClick={menuToggleHandler}>
-                <ScrollLink
+              <li>
+                <Link
+                  to={"/"}
                   className={`${styles.nav__menu__item} ${styles.item} text`}
-                  to={"projects"}
+                  onClick={menuToggleHandler}
                 >
-                  Projects
-                </ScrollLink>
-              </Link>
-              <Link
-                to={`/blog`}
-                className={`${styles.nav__menu__item} ${styles.item} text`}
-                onClick={menuToggleHandler}
-              >
-                Blog
-              </Link>
-              <Link
-                className={`${styles.nav__menu__item} ${styles.item} text`}
-                to={"/"}
-                onClick={menuToggleHandler}
-              >
-                Download CV
-              </Link>
-              <ul className={`${styles.icon__list} text`}>
+                  {t("navbar.home")}
+                </Link>
+              </li>
+              {isBlogPage ? (
+                <li>
+                  <Link
+                    className={`${styles.nav__menu__item} ${styles.item} text`}
+                    to={"/?scrollTo=techStack"}
+                    onClick={menuToggleHandler}
+                  >
+                    {t("navbar.techStack")}
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link
+                    onClick={(
+                      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+                    ) => menuScrollHandler(event, "techStack", setMenuOpen)}
+                    className={`${styles.nav__menu__item} ${styles.item} text`}
+                    to={"/"}
+                  >
+                    {t("navbar.techStack")}
+                  </Link>
+                </li>
+              )}
+
+              {isBlogPage ? (
+                <li>
+                  <Link
+                    to={"/?scrollTo=projects"}
+                    className={`${styles.nav__menu__item} ${styles.item} text`}
+                    onClick={menuToggleHandler}
+                  >
+                    {t("navbar.projects")}
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link
+                    to={"/"}
+                    onClick={(
+                      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+                    ) => menuScrollHandler(event, "projects", setMenuOpen)}
+                    className={`${styles.nav__menu__item} ${styles.item} text`}
+                  >
+                    {t("navbar.projects")}
+                  </Link>
+                </li>
+              )}
+              <li>
+                <Link
+                  to={`/blog`}
+                  className={`${styles.nav__menu__item} ${styles.item} text`}
+                  onClick={menuToggleHandler}
+                >
+                  {t("navbar.blog")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={`${styles.nav__menu__item} ${styles.item} text`}
+                  to={"/"}
+                  onClick={menuToggleHandler}
+                >
+                  {t("navbar.downloadCV")}
+                </Link>
+              </li>
+              <li className={`${styles.icon__list} text`}>
                 <ContactIcons
                   iconSize="29px"
                   containerStyle={{ display: "flex" }}
+                  listStyle={{ cursor: "pointer" }}
+                  onClick={menuToggleHandler}
                 />
-
-                <li>
-                  <button
-                    className={`${styles.themeBtn} text ${
-                      theme === "light" ? styles.lightTheme : styles.darkTheme
-                    }`}
-                    onClick={toggleTheme}
-                  >
-                    {theme === "light" ? (
-                      <FaCloudMoon size={30} />
-                    ) : (
-                      <FaRegSun size={30} />
-                    )}
-                  </button>
-                </li>
-              </ul>
+                <button
+                  className={`${styles.themeBtn} text ${
+                    theme === "light" ? styles.lightTheme : styles.darkTheme
+                  }`}
+                  onClick={toggleTheme}
+                  aria-label={t("navbar.themeBtn")}
+                >
+                  {theme === "light" ? (
+                    <FaCloudMoon
+                      size={30}
+                      onClick={menuToggleHandler}
+                      aria-label={t("navbar.themeIcons.moon")}
+                    />
+                  ) : (
+                    <FaRegSun
+                      size={30}
+                      onClick={menuToggleHandler}
+                      aria-label={t("navbar.themeIcons.sun")}
+                    />
+                  )}
+                </button>
+              </li>
+              <li>
+                
+              </li>
             </ul>
           </nav>
           <div className={styles.header__content__toggle}>

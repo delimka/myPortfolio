@@ -33,3 +33,18 @@
 .footer {
   height: 40%;
 }
+
+@media (max-width: 450px) {
+  .cardSkeleton {
+    box-shadow: 0px 0px 6px black;
+    height: 450px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 378px) {
+  .cardSkeleton {
+    height: 460px;
+    width: 320px;
+  }
+}

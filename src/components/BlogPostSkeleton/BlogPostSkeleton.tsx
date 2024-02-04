@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './BlogPostSkeleton.module.scss'
 
 const BlogPostSkeleton = () => {

@@ -1,0 +1,72 @@
+@use "./../../styles/abstracts/_colors" as *;
+
+.Dropdown {
+  margin-top: auto;
+  margin-bottom: auto;
+  button{
+    height: 36px;
+
+  }
+  .DropdownMenu {
+    min-width: 35px;
+    margin-top: 5%;
+    li {
+      &.active {
+        background-color: $white-600;
+        opacity: 0.4;
+        button {
+          &:hover {
+            background-color:  $white-600;
+            cursor:auto;
+          }
+        }
+      }
+      button {
+        &:hover {
+          background-color: $blue-400;
+        }
+      }
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid $dark-500;
+    object-fit: cover;
+  }
+  button {
+    width: 55px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 1240px) {
+
+  .Dropdown{
+    button{
+      height: 32px;
+  }
+  }
+
+}
+
+@media (max-width: 980px) {
+
+  .Dropdown{
+    margin-left: 1rem;
+    button{
+        height: 32px;
+    }
+  
+  }
+}
+
+@media (max-width: 450px) {
+
+  .Dropdown{
+    button{
+      width: 48px;
+
+    }
+  }
+}

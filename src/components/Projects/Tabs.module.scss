@@ -10,7 +10,6 @@
   button {
     flex: 1;
     padding: 15px;
-    border-radius: 4px;
     transition: background-color 0.3s;
     font-family: $secondaryFont;
     font-weight: $fontWeightBold;
@@ -36,7 +35,7 @@ button.clicked {
 
   &.container {
     button {
-      background-color: $white-400;
+      background-color: $white-500;
     }
   }
 }

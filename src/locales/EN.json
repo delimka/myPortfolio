@@ -1,0 +1,118 @@
+{
+  "navbar": {
+    "home": "Home",
+    "techStack": "Tech Stack",
+    "projects": "Projects",
+    "blog": "Blog",
+    "downloadCV": "Download CV",
+    "lngBtn": "Change your language",
+    "email": "Email",
+    "languages": {
+      "ru": "Russian language",
+      "eng": "English language",
+      "ee": "Estonian language"
+    },
+    "themIcons": {
+      "moon": "Press to change to the light theme",
+      "sun": "Press to change to the dark theme"
+    },
+    "themeBtn": "Press to change the theme"
+  },
+  "contactIcons": {
+    "gitIcon": "Icon for navigating to author's GitHub page",
+    "linkedInIcon": "Icon for navigating to author's LinkedIn page",
+    "eMailIcon": "Icon for emailing the author"
+  },
+  "hero": {
+    "description": "Hi 👋,\nMy name is Vlad\nI am a web developer",
+    "altText": "Portrait of Vlad, a web developer",
+    "smScreen": {
+      "h1": "Vlad Baldin",
+      "h2": "Web-developer"
+    }
+  },
+  "stack": {
+    "title": "My Tech Stack",
+    "description": "Technologies I’ve been working with recently",
+    "icons": {
+      "HTML5": "HTML5 Logo",
+      "CSS3": "CSS Logo",
+      "Javascript": "Javascript Logo",
+      "Typescript": "Typescript Logo",
+      "React": "React Logo",
+      "GraphQL": "GraphQL Logo",
+      "Sass": "Sass Logo",
+      "Bootstrap": "Bootstrap Logo",
+      "Mui": "Mui Logo",
+      "Github": "GitHub Logo",
+      "Figma": "Figma Logo",
+      "Photoshop": "Photoshop Logo"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Thing I've built so far",
+    "figr": {
+      "name": "Figr",
+      "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
+      "techUsed": "Tech used:",
+      "livePreview": "Live preview",
+      "viewCode": "View code",
+      "imgDescription": "Screenshot of Figr website"
+    },
+    "dpInflatables": {
+      "name": "DP Inflatables",
+      "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
+      "techUsed": "Tech used:",
+      "livePreview": "Live preview",
+      "viewCode": "View code",
+      "imgDescription": "Screenshot of DPInflatables website"
+    },
+    "myPortfolio": {
+      "name": "Portfoli with blog",
+      "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
+      "techUsed": "Tech used:",
+      "livePreview": "Live preview",
+      "viewCode": "View code",
+      "imgDescription": "Screenshot of Portfolio website"
+    }
+  },
+  "blog": {
+    "title": "My Blog",
+    "subtitle": "My blog for studying purpose"
+  },
+
+  "sidebar": {
+    "all": "All Categories",
+    "fromProjects": "From projects",
+    "frontDeveloper": "Front Development",
+    "dataStructuresAlgorithms": "Data Structures and Algorithms",
+    "methods": "Method",
+    "categories": {}
+  },
+  "footer": {
+    "about": "About Me",
+    "aboutMe": "I am a front-end developer with over 2 years of experience. I obtained a bachelor's degree in web development in Tallinn. Experience working in teams and effectively collaborating with colleagues. Able to adapt to different working styles and tasks. Value openness, honesty, and professionalism in communication.",
+    "navigation": {
+      "title": "Navigation",
+      "home": "Home",
+      "techStack": "Tech Stack",
+      "projects": "Projects",
+      "blog": "Blog",
+      "downloadCV": "Download CV"
+    },
+    "contactInfo": {
+      "title": "Contact",
+      "location": "Estonia, Tallinn",
+      "email": "vlad.baldin.1@eek.ee",
+      "phone": "+372 58234118"
+    },
+    "socialNetworks": {
+      "title": "Get in touch with me:",
+      "linkedInIcon": "Icon for redirecting to author's LinkedIn page",
+      "eMailIcon": "Icon for sending email to the author",
+      "gitIcon": "Icon for connecting via Telegram"
+    },
+    "rightsReserved": "All rights reserved."
+  }
+}

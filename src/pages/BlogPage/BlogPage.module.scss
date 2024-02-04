@@ -2,32 +2,36 @@
 
 .blogPageContainer {
   display: flex;
-  padding: 0 8%;
+  padding-right: 3%;
+  padding-left: 3%;
+  padding-top: 10%;
+  padding-bottom: 5%;
   height: 100%;
-  padding-top: 150px;
-  padding-bottom: 50px;
   gap: 35px;
 }
 
 .listContainer {
   width: 100%;
 }
-
-@media (max-width: 1348px) {
-  .blogPageContainer {
-    flex-direction: column;
-    padding: 5% 2%;
-  }
+.sideBarSection {
+  width: auto;
 }
 
 .light {
   &.blogPageContainer {
-    background-color: $white-600;
+    background-color: $white-700;
   }
 }
 
 .dark {
   &.blogPageContainer {
-    background-color: $dark-300;
+    background-color: $dark-400;
+  }
+}
+
+@media (max-width: 1348px) {
+  .blogPageContainer {
+    flex-direction: column;
+    padding: 10% 2%;
   }
 }

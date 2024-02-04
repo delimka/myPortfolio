@@ -8,14 +8,16 @@
   gap: 45px;
 }
 
-.panelSection{
+.panelSection {
   width: 100%;
+}
+.h2 {
+  text-align: center;
 }
 
 @media (max-width: 450px) {
-  .container{
-    gap: 25px; 
-    padding: 0;
+  .container {
+    gap: 25px;
+    padding: 0 ;
   }
- 
 }

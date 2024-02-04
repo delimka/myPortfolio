@@ -55,7 +55,6 @@
   transition: 0.3s ease all;
 
   &__content {
-    overflow: hidden;
     margin: 0 auto;
     padding: 1rem 0;
     height: 100%;
@@ -112,7 +111,6 @@
     }
 
     &__toggle {
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -121,9 +119,19 @@
       position: relative;
       margin: 1rem;
       flex: 1;
+      svg{
+        cursor: pointer
+      }
       @include breakpoint(md) {
         display: none;
       }
     }
+  }
+}
+
+
+@media (max-width: 1240px) {
+  .nav__menu__item {
+    font-size: 18px;
   }
 }

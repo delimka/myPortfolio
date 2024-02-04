@@ -1,0 +1,117 @@
+{
+  "navbar": {
+    "home": "Avaleht",
+    "techStack": "Tehnoloogiapinu",
+    "projects": "Projektid",
+    "blog": "Blogi",
+    "downloadCV": "Laadi alla CV",
+    "lngBtn": "Vaheta keelt",
+    "email": "E-post",
+    "languages": {
+      "ru": "Vene keel",
+      "eng": "Inglise keel",
+      "ee": "Eesti keel"
+    },
+    "themIcons": {
+      "moon": "Vajuta, et vahetada heledale teemale",
+      "sun": "Vajuta, et vahetada tumedale teemale"
+    },
+    "themeBtn": "Vajuta, et vahetada teemat"
+  },
+  "contactIcons": {
+    "gitIcon": "Ikoon autori GitHub'i lehele navigeerimiseks",
+    "linkedInIcon": "Ikoon autori LinkedIni lehele navigeerimiseks",
+    "eMailIcon": "Ikooni autorile e-kirja saatmiseks"
+  },
+  "hero": {
+    "description": "Tere 👋,\nMinu nimi on Vlad\nOlen veebiarendaja",
+    "labelText": "Portree Vladist, veebiarendajast",
+    "smScreen": {
+      "h1": "Vlad Baldin",
+      "h2": "Veebiarendaja"
+    }
+  },
+  "stack": {
+    "title": "Minu tehnoloogia pinu",
+    "description": "Tehnoloogiad, millega olen hiljuti töötanud",
+    "icons": {
+      "HTML5": "HTML5 Logo",
+      "CSS3": "CSS Logo",
+      "Javascript": "Javascript Logo",
+      "Typescript": "Typescript Logo",
+      "React": "React Logo",
+      "GraphQL": "GraphQL Logo",
+      "Sass": "Sass Logo",
+      "Bootstrap": "Bootstrap Logo",
+      "Mui": "Mui Logo",
+      "Github": "GitHub Logo",
+      "Figma": "Figma Logo",
+      "Photoshop": "Photoshop Logo"
+    }
+  },
+  "projects": {
+    "title": "Minu projektid",
+    "subtitle": "Asjad, mida ma olen seni ehitanud",
+    "figr": {
+      "name": "Figr",
+      "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
+      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
+      "livePreview": "Live eelvaade",
+      "viewCode": "Vaata koodi",
+      "imgDescription": "Screenshot of Figr website"
+    },
+    "dpInflatables": {
+      "name": "DP Inflatables",
+      "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
+      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
+      "livePreview": "Live eelvaade",
+      "viewCode": "Vaata koodi",
+      "imgDescription": "Screenshot of DPInflatables website"
+    },
+    "myPortfolio": {
+      "name": "Portfolio",
+      "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
+      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
+      "livePreview": "Live eelvaade",
+      "viewCode": "Vaata koodi",
+      "imgDescription": "Screenshot of Portfolio website"
+    }
+  },
+  "blog": {
+    "title": "Minu blogi",
+    "subtitle": "Ajaveeb projektide ja ülesannete ülevaatamiseks"
+  },
+  "sidebar": {
+    "all": "Kõik kategooriad",
+    "fromProjects": "Projektidest",
+    "frontDeveloper": "Front-end",
+    "dataStructuresAlgorithms": "Andmestruktuurid ja algoritmid",
+    "methods": "Meetod",
+    "categories": {}
+  },
+  "footer": {
+    "about": "Minust",
+    "aboutMe": "Front-end arendaja rohkem kui 2-aastase kogemusega. Bakalaureus veebiarenduse programmist Tallinnas. Kogemus meeskonnatöös ja võime tõhusalt suhelda kolleegidega. Võimeline kohanduma erinevatele tööstiilidele ja ülesannetele.",
+    "navigation": {
+      "title": "Navigatsioon",
+      "home": "Kodu",
+      "techStack": "Tehnoloogiapinu",
+      "projects": "Projektid",
+      "blog": "Blogi",
+      "downloadCV": "Laadi alla CV "
+    },
+    "contactInfo": {
+      "title": "Kontakt",
+      "location": "Eesti, Tallinn",
+      "email": "vlad.baldin.1@eek.ee",
+      "phone": "+372 58234118"
+    },
+    "socialNetworks": {
+      "title": "Võta minuga ühendust:",
+      "linkedInIcon": "Ikoon LinkedIni autori lehele suunamiseks",
+      "eMailIcon": "Ikoon e-kirja saatmiseks autorile",
+      "gitIcon": "Ikoon ühenduse loomiseks läbi Telegrammi"
+    },
+    "rightsReserved": "Kõik õigused reserveeritud."
+  }
+}
