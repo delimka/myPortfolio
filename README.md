@@ -15,11 +15,13 @@ Welcome to my web developer portfolio! This project showcases my skills, project
 - GraphQL
 - MDB
 - React-Bootstrap
+- MUI
 - SCSS
 
 Feel free to explore, and I look forward to connecting with you!
 
 ### How to Run
+For live review: https://myportfolio-568b3.web.app/
 
 1. Clone the repository.
 2. Install dependencies with `npm install`.
