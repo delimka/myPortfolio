@@ -52,29 +52,28 @@
   "projects": {
     "title": "Minu projektid",
     "subtitle": "Asjad, mida ma olen seni ehitanud",
+    "techUsed": "Kasutatud tehnoloogiad:",
+    "livePreview": "Live eelvaade",
+    "viewCode": "Vaata koodi",
     "figr": {
       "name": "Figr",
       "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
-      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
-      "livePreview": "Live eelvaade",
-      "viewCode": "Vaata koodi",
       "imgDescription": "Screenshot of Figr website"
     },
     "dpInflatables": {
       "name": "DP Inflatables",
       "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
-      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
-      "livePreview": "Live eelvaade",
-      "viewCode": "Vaata koodi",
       "imgDescription": "Screenshot of DPInflatables website"
     },
     "myPortfolio": {
-      "name": "Portfolio",
-      "description": "See projekt on veebisaidi esikülje rakendus, mis on spetsialiseerunud metallitöödele ja kraanade ehitusele.",
-      "techUsed": "Kasutatud tehnoloogiad: React, Typescript, Firebase, SCSS",
-      "livePreview": "Live eelvaade",
-      "viewCode": "Vaata koodi",
-      "imgDescription": "Screenshot of Portfolio website"
+      "name": "Portfolio koos blogiga",
+      "description": "Minu portfolio näitab projekte ja enese koostatud blogisid. API-otspunktide loomiseks kasutatakse Hypgraphi. Tutvuge minu tööga!",
+      "imgDescription": "Portfelli veebisaidi ekraanipilt"
+    },
+    "firstPortfolio": {
+      "name": "Minu esimene portfolio",
+      "description": "Minu väga esimene lihtne portfolio, mis loodi minu esimesel õppeaastal ülikoolis.",
+      "imgDescription": "Portfelli veebisaidi ekraanipilt"
     }
   },
   "blog": {

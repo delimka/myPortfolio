@@ -123,34 +123,33 @@ function NavBar() {
               <li className={`${styles.icon__list} text`}>
                 <ContactIcons
                   iconSize="29px"
-                  containerStyle={{ display: "flex" }}
+                  containerStyle={{ display: "flex", flexDirection:"row-reverse"}}
                   listStyle={{ cursor: "pointer" }}
                   onClick={menuToggleHandler}
+                  additionalButtons={[
+                    <button
+                      className={`${styles.themeBtn} text ${
+                        theme === "light" ? styles.lightTheme : styles.darkTheme
+                      }`}
+                      onClick={toggleTheme}
+                      aria-label={t("navbar.themeBtn")}
+                    >
+                      {theme === "light" ? (
+                        <FaCloudMoon
+                          size={32}
+                          onClick={menuToggleHandler}
+                          aria-label={t("navbar.themeIcons.moon")}
+                        />
+                      ) : (
+                        <FaRegSun
+                          size={32}
+                          onClick={menuToggleHandler}
+                          aria-label={t("navbar.themeIcons.sun")}
+                        />
+                      )}
+                    </button>,
+                  ]}
                 />
-                <button
-                  className={`${styles.themeBtn} text ${
-                    theme === "light" ? styles.lightTheme : styles.darkTheme
-                  }`}
-                  onClick={toggleTheme}
-                  aria-label={t("navbar.themeBtn")}
-                >
-                  {theme === "light" ? (
-                    <FaCloudMoon
-                      size={30}
-                      onClick={menuToggleHandler}
-                      aria-label={t("navbar.themeIcons.moon")}
-                    />
-                  ) : (
-                    <FaRegSun
-                      size={30}
-                      onClick={menuToggleHandler}
-                      aria-label={t("navbar.themeIcons.sun")}
-                    />
-                  )}
-                </button>
-              </li>
-              <li>
-                
               </li>
             </ul>
           </nav>

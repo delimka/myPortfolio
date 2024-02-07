@@ -17,7 +17,7 @@
 .icon__list {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
 }
 
 .icon__list li:not(:first-child) {
@@ -28,11 +28,9 @@
 
 .themeBtn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 15px;
+  margin: 0 15px;
   border-radius: 8px;
-  padding: 2px;
+  padding: 0px;
 }
 
 .darkTheme {

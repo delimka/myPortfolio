@@ -17,7 +17,6 @@ const BlogPost: React.FC = () => {
   const blogsHeadingRef = useRef<HTMLHeadingElement>(null);
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
-
   const { fetchStatus, post } = useFetchBlogPost();
 
   useEffect(() => {
@@ -42,57 +41,59 @@ const BlogPost: React.FC = () => {
     console.log("Category clicked");
     navigate("/blog");
   };
+  
 
   return (
     <div className={theme} ref={blogsHeadingRef}>
       <div className="background">
         <div className={`${styles[theme]} ${styles.blogPostContainer}`}>
+       
           <section className={styles.sideBarSection}>
             <SideBar onCategoryClick={handleCategoryClick} />
           </section>
-          <article className={`${styles[theme]} ${styles.postContainer}`}>
-            {fetchStatus === FETCH_STATUS.LOADING && <BlogPostSkeleton />}
-            {fetchStatus === FETCH_STATUS.ERROR && (
-              <div>Error loading blog post</div>
-            )}
-            {fetchStatus === FETCH_STATUS.SUCCESS && (
-              <>
-                {post?.coverPhoto && (
-                  <img
-                    className={styles.coverPhoto}
-                    src={post.coverPhoto.url}
-                    alt="Cover photo of the article"
-                  />
-                )}
-                <h1>{post?.title}</h1>
-                <div className={styles.blogInfo}>
-                  <div className={styles.viewsContainer}>
-                    <FaRegEye />
-                    <p>{views}</p>
-                  </div>
-                  <div className={styles.datePublishedContainer}>
-                    <FaCalendar />
-                    <p className={styles.datePublished}>
-                      {post?.datePublished}
-                    </p>
-                  </div>
-                  <div className={styles.authorContainer}>
+            <article className={`${styles[theme]} ${styles.postContainer}`}>
+              {fetchStatus === FETCH_STATUS.LOADING && <BlogPostSkeleton />}
+              {fetchStatus === FETCH_STATUS.ERROR && (
+                <div>Error loading blog post</div>
+              )}
+              {fetchStatus === FETCH_STATUS.SUCCESS && (
+                <>
+                  {post?.coverPhoto && (
                     <img
-                      className={styles.authorLogo}
-                      src={post?.author.avatar.url}
+                      className={styles.coverPhoto}
+                      src={post.coverPhoto.url}
+                      alt="Cover photo of the article"
                     />
-                    <p className={styles.authorName}>{post?.author.name}</p>
+                  )}
+                  <h1>{post?.title}</h1>
+                  <div className={styles.blogInfo}>
+                    <div className={styles.viewsContainer}>
+                      <FaRegEye />
+                      <p>{views}</p>
+                    </div>
+                    <div className={styles.datePublishedContainer}>
+                      <FaCalendar />
+                      <p className={styles.datePublished}>
+                        {post?.datePublished}
+                      </p>
+                    </div>
+                    <div className={styles.authorContainer}>
+                      <img
+                        className={styles.authorLogo}
+                        src={post?.author.avatar.url}
+                      />
+                      <p className={styles.authorName}>{post?.author.name}</p>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className={styles.htmlContent}
-                  dangerouslySetInnerHTML={{
-                    __html: post?.content.html || "",
-                  }}
-                />
-              </>
-            )}
-          </article>
+                  <div
+                    className={styles.htmlContent}
+                    dangerouslySetInnerHTML={{
+                      __html: post?.content.html || "",
+                    }}
+                  />
+                </>
+              )}
+            </article>
         </div>
       </div>
     </div>

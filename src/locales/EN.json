@@ -52,28 +52,27 @@
   "projects": {
     "title": "My Projects",
     "subtitle": "Thing I've built so far",
+    "techUsed": "Tech used:",
+    "livePreview": "Live preview",
+    "viewCode": "View code",
     "figr": {
       "name": "Figr",
       "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
-      "techUsed": "Tech used:",
-      "livePreview": "Live preview",
-      "viewCode": "View code",
       "imgDescription": "Screenshot of Figr website"
     },
     "dpInflatables": {
       "name": "DP Inflatables",
-      "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
-      "techUsed": "Tech used:",
-      "livePreview": "Live preview",
-      "viewCode": "View code",
+      "description": "This project is a front-end implementation for a website specializing in marketing and production of different inflatable things.",
       "imgDescription": "Screenshot of DPInflatables website"
     },
     "myPortfolio": {
-      "name": "Portfoli with blog",
-      "description": "This project is a front-end implementation for a website specializing in metalworks and crane construction.",
-      "techUsed": "Tech used:",
-      "livePreview": "Live preview",
-      "viewCode": "View code",
+      "name": "My portfolio with blog",
+      "description": "My portfolio showcases projects & self-authored blogs. I was using Hygraph, the headless CMS, to power my portfolio's API endpoints.",
+      "imgDescription": "Screenshot of Portfolio website"
+    },
+    "firstPortfolio": {
+      "name": "My first portfolio",
+      "description": "My very first simple portfolio, which was created during my first year of studying in university.",
       "imgDescription": "Screenshot of Portfolio website"
     }
   },

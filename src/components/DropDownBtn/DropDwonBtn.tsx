@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <MDBDropdown className={styles.Dropdown}>
-      <MDBDropdownToggle aria-haspopup="languageMenu" >
+      <MDBDropdownToggle aria-haspopup="true" >
         {currentLanguage === "en" && (
           <img src={flags.en}  alt={t("navbar.languages.eng")} />
         )}

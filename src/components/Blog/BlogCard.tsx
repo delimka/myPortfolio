@@ -61,7 +61,6 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post }) => {
                 className={styles.authorLogo}
                 src={post?.author?.avatar.url}
                 alt="Author's portarait"
-                loading="lazy"
               />
               <p>{post?.author?.name}</p>
             </div>

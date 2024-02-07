@@ -1,6 +1,5 @@
-// apiService.ts
 import { GraphQLClient, gql } from "graphql-request";
-import { PostCard, Post  } from "./../interfaces/BlogCardInterface";
+import { PostCard, Post } from "./../interfaces/BlogCardInterface";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/clqjodsz5b3q801ukarrs15f7/master"
@@ -8,52 +7,86 @@ const graphcms = new GraphQLClient(
 
 export const getPosts = async (
   limit: number,
-  skip: number,  
-  category: string = 'programming',
-  
+  skip: number,
+  category: string = "programming",
+  searchTerm?: string
 ): Promise<PostCard[]> => {
-  const QUERY = gql`
-  query GetPosts($limit: Int!, $skip: Int!, $category: String) {
-    posts(first: $limit, skip: $skip, where: { category_some: { name: $category } }) {
-        id
-        title
-        datePublished
-        slug
-        description
-        category {
-          name
-        }
-        author {
-          name
-          avatar {
+  let QUERY;
+
+  if (searchTerm) {// If searchTerm is provided, include it in the query
+    QUERY = gql`
+      query GetPosts($limit: Int!, $skip: Int!, $searchTerm: String) {
+        posts(
+          first: $limit
+          skip: $skip
+          where: { description_contains: $searchTerm }
+        ) {
+          id
+          title
+          datePublished
+          slug
+          description
+          category {
+            name
+          }
+          author {
+            name
+            avatar {
+              url
+            }
+          }
+          coverPhoto {
             url
           }
         }
-        coverPhoto {
-          url
+      }
+    `;
+  } else { // if search by category
+    QUERY = gql`
+      query GetPosts($limit: Int!, $skip: Int!, $category: String) {
+        posts(
+          first: $limit
+          skip: $skip
+          where: { category_some: { name: $category } }
+        ) {
+          id
+          title
+          datePublished
+          slug
+          description
+          category {
+            name
+          }
+          author {
+            name
+            avatar {
+              url
+            }
+          }
+          coverPhoto {
+            url
+          }
         }
       }
-    }
-  `;
+    `;
+  }
 
   try {
-    const data: { posts: PostCard[] } = await graphcms.request(QUERY, {
+    const data: { post: PostCard } = await graphcms.request(QUERY, {
       limit,
       skip,
       category,
-
+      searchTerm,
     });
-    console.log("GetPosts from api:", data);
+    console.log(data);
     return data.posts;
   } catch (error) {
-    console.error("Error fetching data:", error);
-    return [];
+    console.error("Error fetching posts:", error);
+    throw error;
   }
-
 };
 
-
-export const getBlogPost = async (slug: string): Promise<Post| null> => {
+export const getBlogPost = async (slug: string): Promise<Post | null> => {
   const QUERY = gql`
     query GetBlogPost($slug: String!) {
       post(where: { slug: $slug }) {
@@ -80,7 +113,7 @@ export const getBlogPost = async (slug: string): Promise<Post| null> => {
   `;
 
   try {
-    const data: { post: Post} = await graphcms.request(QUERY, {
+    const data: { post: Post } = await graphcms.request(QUERY, {
       slug,
     });
     console.log("getBlogPost from API:", data);
@@ -91,23 +124,6 @@ export const getBlogPost = async (slug: string): Promise<Post| null> => {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// using just fetch
 // export const getPosts = async (limit: number, skip: number): Promise<Post[]> => {
 //   const endpoint = 'https://api-eu-west-2.hygraph.com/v2/clqjodsz5b3q801ukarrs15f7/master';
 //   const query = `

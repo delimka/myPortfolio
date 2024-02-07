@@ -28,25 +28,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { theme } = useContext(ThemeContext);
   const { t } = useTranslation();
-  const ref = useRef<HTMLDivElement>(null); 
+  const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: ref, 
-    offset: ["0 1", "1.33 1"]
+    target: ref,
+    offset: ["0 1", "1.33 1"],
   });
 
-  const scaleProgress = useTransform(scrollYProgress, [0,1], [0.8, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0,1], [0.5, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
   return (
     <motion.div
       className={`${styles.cardContainer} ${styles[theme]}`}
-      style={{ scale: scaleProgress, opacity: opacityProgress }} 
+      style={{ scale: scaleProgress, opacity: opacityProgress }}
       ref={ref}
-      aria-hidden="true"
     >
       <figure className={styles.imageContainer}>
-        <img className={styles.image} src={image} alt={title} aria-label={altImage} />
+        <img
+          className={styles.image}
+          src={image}
+          alt={title}
+          aria-label={altImage}
+        />
       </figure>
       <div className={styles.cardContentContainer}>
         <article className={styles.cardContent}>
@@ -59,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </article>
         <div className={styles.stackContainer}>
           <p className={styles.stack}>
-            <strong>Tech stack: </strong>
+            <strong> {t("projects.techUsed")}</strong>
             {stack}
           </p>
         </div>
@@ -71,8 +75,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={web_link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-hidden="false"
             >
-              {t("projects.figr.livePreview")}
+              {t("projects.livePreview")}
             </a>
           </button>
           <button className={`${styles.linkButton} ${styles[theme]}`}>
@@ -82,8 +87,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={git_link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-hidden="false"
             >
-              {t("projects.figr.viewCode")}
+              {t("projects.viewCode")}
             </a>
           </button>
         </div>

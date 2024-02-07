@@ -1,4 +1,3 @@
-// BlogList.tsx
 import React, { useContext } from "react";
 import BlogCard from "./BlogCard";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -7,24 +6,25 @@ import styles from "./BlogList.module.scss";
 import CardSkeleton from "./../CardSkeleton/CardSkeleton";
 import useBlogData from "../../hooks/useFetchBlogList";
 
-
 interface BlogListProps {
   selectedCategory: string | null;
   columns?: number;
   initialVisiblePosts?: number;
+  searchTerm?: string;
 }
 
 const BlogList: React.FC<BlogListProps> = ({
   selectedCategory,
   columns,
   initialVisiblePosts,
+  searchTerm,
 }) => {
   const { theme } = useContext(ThemeContext);
-
 
   const { allPosts, visiblePosts, fetchStatus, loadMorePosts } = useBlogData({
     category: selectedCategory || undefined,
     initialVisiblePosts,
+    searchTerm,
   });
 
   return (
@@ -45,7 +45,7 @@ const BlogList: React.FC<BlogListProps> = ({
             style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
           >
             {allPosts.slice(0, visiblePosts).map((post) => (
-              <BlogCard key={post.id} post={post}/>
+              <BlogCard key={post.id} post={post} />
             ))}
           </ul>
           {allPosts.length > visiblePosts ? (
@@ -55,9 +55,7 @@ const BlogList: React.FC<BlogListProps> = ({
               aria-label="Click the button to load more posts"
             ></button>
           ) : (
-            <button
-              style={{ marginTop: "30px" }}
-            ></button>
+            <button style={{ marginTop: "30px" }}></button>
           )}
         </>
       )}

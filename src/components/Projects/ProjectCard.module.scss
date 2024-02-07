@@ -2,6 +2,37 @@
 @use "./../../styles/abstracts/_fonts" as *;
 @use "./../../styles/abstracts/_animations" as *;
 
+.title {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  font-family: $primaryFont;
+  font-weight: $fontWeightMedium;
+}
+
+.description {
+  margin-top: 8px;
+  font-family: $primaryFont;
+  font-weight: $fontWeightLight;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.linkButton {
+  display: flex;
+  font-family: $primaryFont;
+  font-weight: $fontWeightRegular;
+  @include movingUnderlineAnimation;
+
+  a {
+    // @include movingUnderlineAnimation;
+    padding-left: 4px;
+    transition: 200ms ease;
+    text-decoration: none;
+  }
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;
@@ -28,7 +59,7 @@
 }
 
 .imageContainer {
-  height: 300px;
+  min-height: 150px;
   width: 100%;
   overflow: hidden;
 }
@@ -44,7 +75,6 @@
 
 .stackContainer {
   margin-top: auto;
-  margin-bottom: auto;
   p {
     margin-top: 0;
   }
@@ -68,32 +98,9 @@
   margin-left: 1rem;
 }
 
-.title {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  font-family: $primaryFont;
-  font-weight: $fontWeightMedium;
-}
 
-.description {
-  margin-top: 8px;
-  font-family: $primaryFont;
-  font-weight: $fontWeightLight;
-}
 
-.linkButton {
-  display: flex;
-  font-family: $primaryFont;
-  font-weight: $fontWeightRegular;
-  @include movingUnderlineAnimation;
 
-  a {
-    // @include movingUnderlineAnimation;
-    padding-left: 4px;
-    transition: 200ms ease;
-    text-decoration: none;
-  }
-}
 
 // Extra styles ONLY for the BLOG CARDS (check blogCard)
 

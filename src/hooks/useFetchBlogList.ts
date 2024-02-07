@@ -1,4 +1,3 @@
-// useBlogData.ts
 import { useEffect, useState } from "react";
 import { getPosts } from "../services/apiService";
 import { FETCH_STATUS } from "../services/fetchStatus";
@@ -8,8 +7,9 @@ import { delayPromise } from "../helpers/fetchFunctions";
 
 interface UseBlogDataProps {
   category?: string;
-  // loadMoreButtonRef: React.RefObject<HTMLButtonElement>;
+  searchTerm?: string;
   initialVisiblePosts?: number;
+  shouldSendSearchRequest?: boolean;
 }
 
 interface UseBlogDataResult {
@@ -21,27 +21,36 @@ interface UseBlogDataResult {
 
 const useBlogData = ({
   category,
+  searchTerm,
   initialVisiblePosts = 4,
 }: UseBlogDataProps): UseBlogDataResult => {
   const [allPosts, setAllPosts] = useState<PostCard[]>([]);
-  const [visiblePosts, setVisiblePosts] = useState(initialVisiblePosts);
-  const [fetchStatus, setFetchStatus] = useState(FETCH_STATUS.IDLE);
+  const [visiblePosts, setVisiblePosts] = useState<number>(initialVisiblePosts);
+  const [fetchStatus, setFetchStatus] = useState<string>(FETCH_STATUS.IDLE);
+  const [prevSearchTerm, setPrevSearchTerm] = useState<string | null>(null);
+  const [prevCategory, setPrevCategory] = useState<string | null>(null);
+
   const { setScrollToBottom } = useScroll();
 
   const fetchData = async (
     fetchCount: number,
-    selectedCategory: string | undefined
+    selectedCategory: string | undefined,
+    searchTerm?: string | null
   ) => {
     setFetchStatus(FETCH_STATUS.LOADING);
+    console.log("searchtherm fetchData ", searchTerm);
 
     await delayPromise(700);
 
     try {
-      const data = await getPosts(
+      const data: PostCard[] = await getPosts(
         fetchCount,
         0,
-        selectedCategory || "programming"
+        selectedCategory || "programming",
+        searchTerm || undefined
       );
+      console.log(" searchterm fetcData getPosts ", searchTerm);
+
       setAllPosts(data);
       setVisiblePosts(initialVisiblePosts);
       setFetchStatus(FETCH_STATUS.SUCCESS);
@@ -52,8 +61,14 @@ const useBlogData = ({
   };
 
   useEffect(() => {
-    fetchData(8, category);
-  }, [category]);
+    if (searchTerm !== prevSearchTerm) {
+      fetchData(8, category, searchTerm);
+      setPrevSearchTerm(searchTerm || null);
+    } else if(category !== prevCategory) {
+      fetchData(8, category);
+      setPrevCategory(category || null); 
+    }
+  }, [category, searchTerm]);
 
   const loadMorePosts = async () => {
     try {
@@ -64,7 +79,8 @@ const useBlogData = ({
         const additionalPosts = await getPosts(
           8,
           allPosts.length,
-          category || "programming"
+          category || "programming",
+          searchTerm
         );
         if (additionalPosts.length > 0) {
           setAllPosts((prev) => [...prev, ...additionalPosts]);
