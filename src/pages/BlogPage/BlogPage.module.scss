@@ -1,37 +1,74 @@
-@use "./../../styles/abstracts/_colors" as *;
-
 .blogPageContainer {
-  display: flex;
-  padding-right: 3%;
-  padding-left: 3%;
-  padding-top: 10%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto auto;
+  gap: 50px;
+  margin: 0 5%;
   padding-bottom: 5%;
-  height: 100%;
-  gap: 35px;
+  padding-top: 5%;
 }
 
-.listContainer {
-  width: 100%;
+.hidden{
+  opacity: 0;
 }
+.searchInputContainer{
+  width: 300px;
+}
+.searchInput {
+  grid-column: span 2;
+}
+
 .sideBarSection {
-  width: auto;
+  grid-column: 1;
+  grid-row: 2;
 }
 
-.light {
-  &.blogPageContainer {
-    background-color: $white-700;
+.blogContentSection {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 100vh;
+}
+
+.hideOverflow{
+  overflow: auto;
+}
+@media (max-width: 1534px) {
+  .blogPageContainer {
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+  .blogContentSection {
+    width: 100%;
   }
 }
-
-.dark {
-  &.blogPageContainer {
-    background-color: $dark-400;
+@media (max-width: 1348px) {
+  .blogPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 1348px) {
+  .searchInputContainer {
+    width: 810px;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
   .blogPageContainer {
-    flex-direction: column;
-    padding: 10% 2%;
+    margin: 0 1%;
+    padding-top: 100px;
+
   }
 }
+
+@media (max-width: 980px) {
+  .sideBarSection {
+    width: 100%;
+  }
+  .searchInputContainer {
+    width: 100%;
+  }
+}
+

@@ -1,10 +1,14 @@
+// BlogListItem.jsx
+
 import React, { useContext, useRef, useState } from "react";
 import { PostCard } from "./../../interfaces/BlogCardInterface";
 import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./../Projects/ProjectCard.module.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FaCalendar } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import {  Link } from "react-router-dom";
+
 interface BlogListItemProps {
   post: PostCard;
 }
@@ -20,16 +24,16 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post }) => {
     }
   };
 
+
+
   return (
-    <motion.li
-      ref={ref}
-      initial={{ opacity: 0.5, scale: 0.7 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      onViewportEnter={applyEffectOnce}
-    >
-      <Link
-        to={`/blog/${post.slug}`}
+    <Link to={`/blog?post=${post.slug}`}>
+      <motion.li
+        ref={ref}
+        initial={{ opacity: 0.3, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        onViewportEnter={applyEffectOnce}
         className={`${styles.cardContainer} ${styles[theme]}`}
       >
         <figure className={styles.imageContainer}>
@@ -66,8 +70,8 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post }) => {
             </div>
           </div>
         </div>
-      </Link>
-    </motion.li>
+      </motion.li>
+    </Link>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import BlogCard from "./BlogCard";
 import { ThemeContext } from "../../context/ThemeContext";
 import { FETCH_STATUS } from "../../services/fetchStatus";
@@ -7,10 +7,11 @@ import CardSkeleton from "./../CardSkeleton/CardSkeleton";
 import useBlogData from "../../hooks/useFetchBlogList";
 
 interface BlogListProps {
-  selectedCategory: string | null;
+  selectedCategory: string | null | undefined;
   columns?: number;
   initialVisiblePosts?: number;
   searchTerm?: string;
+  // onPostSelect: (slug: string) => void;
 }
 
 const BlogList: React.FC<BlogListProps> = ({
@@ -18,8 +19,10 @@ const BlogList: React.FC<BlogListProps> = ({
   columns,
   initialVisiblePosts,
   searchTerm,
+  // onPostSelect,
 }) => {
   const { theme } = useContext(ThemeContext);
+
 
   const { allPosts, visiblePosts, fetchStatus, loadMorePosts } = useBlogData({
     category: selectedCategory || undefined,
@@ -27,12 +30,14 @@ const BlogList: React.FC<BlogListProps> = ({
     searchTerm,
   });
 
+
+
   return (
     <div className={styles.blogCardContainer}>
       {fetchStatus === FETCH_STATUS.LOADING && (
         <ul
           style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-          className={`${styles.blogCardList} ${styles.modifiedBlogCardList}`}
+          className={styles.blogCardList}
         >
           <CardSkeleton />
         </ul>
@@ -45,7 +50,11 @@ const BlogList: React.FC<BlogListProps> = ({
             style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
           >
             {allPosts.slice(0, visiblePosts).map((post) => (
-              <BlogCard key={post.id} post={post} />
+              <BlogCard
+                key={post.id}
+                post={post}
+                // onPostClick={() => onPostSelect(post.slug)}
+              />
             ))}
           </ul>
           {allPosts.length > visiblePosts ? (

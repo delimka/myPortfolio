@@ -46,7 +46,7 @@ const useBlogData = ({
       const data: PostCard[] = await getPosts(
         fetchCount,
         0,
-        selectedCategory || "programming",
+        selectedCategory,
         searchTerm || undefined
       );
       console.log(" searchterm fetcData getPosts ", searchTerm);
@@ -64,9 +64,10 @@ const useBlogData = ({
     if (searchTerm !== prevSearchTerm) {
       fetchData(8, category, searchTerm);
       setPrevSearchTerm(searchTerm || null);
-    } else if(category !== prevCategory) {
+    } else if (category !== prevCategory) {
+
       fetchData(8, category);
-      setPrevCategory(category || null); 
+      setPrevCategory(category || null);
     }
   }, [category, searchTerm]);
 

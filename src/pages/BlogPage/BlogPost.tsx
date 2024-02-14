@@ -1,9 +1,7 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { FETCH_STATUS } from "../../services/fetchStatus";
 import { ThemeContext } from "../../context/ThemeContext";
 import { FaRegEye, FaCalendar } from "react-icons/fa6";
-import SideBar from "../../components/Blog/SideBar";
 import BlogPostSkeleton from "./../../components/BlogPostSkeleton/BlogPostSkeleton";
 import styles from "./BlogPost.module.scss";
 import Prism from "prismjs";
@@ -12,45 +10,29 @@ import "prismjs/themes/prism-tomorrow.min.css";
 import useFetchBlogPost from "../../hooks/useFetchBlogPost";
 import ReactGA from "react-ga";
 
-const BlogPost: React.FC = () => {
+const BlogPost: React.FC<{ slug: string }> = ({ slug }) => {
   const [views, setViews] = useState<number>(0);
   const blogsHeadingRef = useRef<HTMLHeadingElement>(null);
   const { theme } = useContext(ThemeContext);
-  const navigate = useNavigate();
-  const { fetchStatus, post } = useFetchBlogPost();
+
+  
+  const { fetchStatus, post } = useFetchBlogPost(slug);
 
   useEffect(() => {
     if (post) {
       ReactGA.pageview(`/blog/${post.slug}`);
-      // Получаем количество просмотров из вашего источника данных (например, API)
-      // Здесь используется заглушка, реальная логика должна быть реализована в хуке useFetchBlogPost
-      // Придется сохранять эту информацию где-то на сервере или в базе данных, и затем использовать API для получения этой информации
       const fakeViews = Math.floor(Math.random() * 100) + 1;
       setViews(fakeViews);
     }
-    if (blogsHeadingRef.current) {
-      blogsHeadingRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    
     Prism.highlightAll();
   }, [post]);
 
-  const handleCategoryClick = () => {
-    console.log("Category clicked");
-    navigate("/blog");
-  };
-  
 
   return (
     <div className={theme} ref={blogsHeadingRef}>
       <div className="background">
         <div className={`${styles[theme]} ${styles.blogPostContainer}`}>
-       
-          <section className={styles.sideBarSection}>
-            <SideBar onCategoryClick={handleCategoryClick} />
-          </section>
             <article className={`${styles[theme]} ${styles.postContainer}`}>
               {fetchStatus === FETCH_STATUS.LOADING && <BlogPostSkeleton />}
               {fetchStatus === FETCH_STATUS.ERROR && (

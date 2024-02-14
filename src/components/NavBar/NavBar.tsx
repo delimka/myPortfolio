@@ -104,7 +104,7 @@ function NavBar() {
               )}
               <li>
                 <Link
-                  to={`/blog`}
+                  to={`/blog?category=programming`}
                   className={`${styles.nav__menu__item} ${styles.item} text`}
                   onClick={menuToggleHandler}
                 >

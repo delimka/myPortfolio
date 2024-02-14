@@ -8,7 +8,7 @@ const graphcms = new GraphQLClient(
 export const getPosts = async (
   limit: number,
   skip: number,
-  category: string = "programming",
+  category: string | undefined = "programming",
   searchTerm?: string
 ): Promise<PostCard[]> => {
   let QUERY;
@@ -72,7 +72,7 @@ export const getPosts = async (
   }
 
   try {
-    const data: { post: PostCard } = await graphcms.request(QUERY, {
+    const data: { posts: PostCard[] } = await graphcms.request(QUERY, {
       limit,
       skip,
       category,

@@ -3,31 +3,25 @@
 .blogPostContainer {
   display: flex;
   justify-content: space-around;
-  height: 100%;
-  padding-right: 3%;
-  padding-left: 3%;
-  padding-top: 10%;
   padding-bottom: 5%;
   gap: 35px;
 }
 
 .postContainer {
   padding-bottom: 5%;
-  width: 100svh;
-  flex: 4;
-}
-
-.sideBarSection {
-  flex: 1;
+  overflow: auto;
+  width: 100%;
 }
 
 .coverPhoto {
   width: auto;
-  max-height: 200px;
-  margin-top: 3%;
+  max-height: 300px;
+  min-width: 100%;
+  margin-top: 1px;
   margin-bottom: 5%;
   margin-right: auto;
   margin-left: auto;
+  border: 2px solid $white-700;
 }
 
 .blogInfo {
@@ -91,6 +85,9 @@
     text-align: center;
   }
   .htmlContent {
+    img{
+      border: 2px solid black;
+    }
     .div {
       pre {
         code {
@@ -150,21 +147,23 @@
     color: black;
   }
 }
-
+@media (max-width: 1555px) {
+  .postContainer {
+    padding-bottom: 5%;
+    width: 100%;
+    align-self: center;
+  }
+}
 @media (max-width: 1348px) {
   .blogPostContainer {
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 75px 0;
-    padding: 4% 2%;
   }
   .sideBarSection {
     width: 100%;
   }
   .postContainer {
-    margin-top: 75px;
-    width: 100%;
+    width: calc(100% - 8%);
   }
 
   .blogAuthorInfo {
@@ -174,7 +173,7 @@
 
 @media (max-width: 980px) {
   .postContainer {
-    width: 100%;
+    width: calc(100% - 1%);
   }
 }
 

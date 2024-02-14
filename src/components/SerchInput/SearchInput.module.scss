@@ -1,0 +1,116 @@
+.searchBox {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.searchInput {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: #3b71ca;
+  padding-right: 40px;
+}
+.hidden{
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.searchInput::placeholder {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.btnSearch {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  background-color: transparent;
+  pointer-events: painted;
+  svg {
+    margin-right: auto;
+    margin-left: auto;
+    height: 29px;
+    width: 29px;
+  }
+}
+.btnSearch:focus ~ .searchInput {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.searchInput:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.light {
+  .searchInput {
+    color: #3b71ca;
+    svg {
+      color: black;
+    }
+  }
+  .searchInput::placeholder {
+    color: #3b71ca;
+    opacity: 0.8;
+  }
+  .btnSearch:focus ~ .searchInput {
+    border-bottom: 1px solid rgba(59, 113, 202, 0.2);
+    border-radius: 8px;
+    background-color: rgba(59, 113, 202, 0.3);
+  }
+  .searchInput:focus {
+    border-bottom: 1px solid rgba(59, 113, 202, 0.2);
+    border-radius: 8px;
+    background-color: rgba(59, 113, 202, 0.2);
+  }
+}
+.dark {
+  .icon{
+    svg{
+      color: white;
+      transition: opacity 4s ease-in-out;
+    }
+  }
+  .btnSearch:focus ~ .searchInput {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .searchInput::placeholder {
+    color: white;
+    opacity: 0.5;
+  }
+  .btnSearch:focus ~ .searchInput {
+    border-bottom: 1px solid rgba(59, 113, 202, 0.2);
+    border-radius: 8px;
+    background-color: rgba(59, 113, 202, 0.5);
+  }
+  .searchInput:focus {
+    border-bottom: 1px solid rgba(59, 113, 202, 0.2);
+    border-radius: 8px;
+    background-color: rgba(59, 113, 202, 0.2);
+  }
+}
+
+@media (max-width: 500px) {
+  .btnSearch:focus ~ .searchInput {
+    width: 250px;
+  }
+}
