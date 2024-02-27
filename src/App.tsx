@@ -1,14 +1,11 @@
 // App.tsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-// import NavBar from "./components/NavBar/NavBar";
-// import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import SuspenseBackground from "./components/SuspenseBackground/SuspenseBackground";
 const Stack = lazy(() => import("./components/Stack/Stack"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Blog = lazy(() => import("./components/Blog/Blogs"));
-// const BlogPost = lazy(() => import("./pages/BlogPage/BlogPost"));
 const BlogPage = lazy(() => import("./pages/BlogPage/BlogPage"));
 import PageWrapper from "./../src/components/PageWrapper/PageWrapper";
 
@@ -28,7 +25,7 @@ function App() {
                 <Hero />
                 <Stack />
                 <Projects />
-                <Blog />{" "}
+                <Blog />
               </PageWrapper>
             </Suspense>
           }
@@ -36,11 +33,11 @@ function App() {
         <Route
           path="/blog/"
           element={
-            <PageWrapper>
-              <Suspense fallback={<SuspenseBackground />}>
+            <Suspense fallback={<SuspenseBackground />}>
+              <PageWrapper>
                 <BlogPage />
-              </Suspense>
-            </PageWrapper>
+              </PageWrapper>
+            </Suspense>
           }
         />
       </Routes>

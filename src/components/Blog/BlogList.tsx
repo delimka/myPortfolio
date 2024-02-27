@@ -11,7 +11,6 @@ interface BlogListProps {
   columns?: number;
   initialVisiblePosts?: number;
   searchTerm?: string;
-  // onPostSelect: (slug: string) => void;
 }
 
 const BlogList: React.FC<BlogListProps> = ({
@@ -19,7 +18,6 @@ const BlogList: React.FC<BlogListProps> = ({
   columns,
   initialVisiblePosts,
   searchTerm,
-  // onPostSelect,
 }) => {
   const { theme } = useContext(ThemeContext);
 
@@ -53,7 +51,6 @@ const BlogList: React.FC<BlogListProps> = ({
               <BlogCard
                 key={post.id}
                 post={post}
-                // onPostClick={() => onPostSelect(post.slug)}
               />
             ))}
           </ul>
